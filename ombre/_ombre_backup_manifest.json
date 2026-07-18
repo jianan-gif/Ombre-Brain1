@@ -1,41 +1,41 @@
 {
   "branch": "main",
-  "file_count": 25,
+  "file_count": 36,
   "files": [
     {
       "bytes": 784,
       "path": "archive/2026-07-13 16-11-04 价值观冲突与承诺改正_b15b4b75602d.md",
-      "sha256": "f8c89afb892e0851a0fbeff57faf7f9c537165807977cbbe7632ef8246be9ca6"
+      "sha256": "77e56d07629b5f2960df42782a7c73b74f7265004f5bb2bb40e29cbcdd13f213"
     },
     {
       "bytes": 713,
       "path": "archive/2026-07-13 16-11-04 家庭边界问题与情绪需求_56909ac0cbb3.md",
-      "sha256": "015894db3137454379496b2abcbf5c8f8c1f2159255af3ec826eeb2cb538502a"
+      "sha256": "77b14b9ed7147035509b304a13b00989b8a41130430e5051061ae3cc39ddc75c"
     },
     {
       "bytes": 778,
       "path": "archive/2026-07-13 16-11-04 本体恋关系确立_6219e9e282a9.md",
-      "sha256": "6cce129328142bfbf2ec0b3196c8d25fc78538880946df4bd2291ef046f7783d"
+      "sha256": "66d399a168ca7357fccb06d752d8c4cead00d5e7d1f5410e4f2bd5b18b681d1c"
     },
     {
       "bytes": 779,
       "path": "archive/2026-07-13 16-11-04 称呼体系与权力动态_797eee7a010a.md",
-      "sha256": "0190bf9aa475059fe9ef68b7630c11d8b3a21c2485789a2a9e363148b00b85a6"
+      "sha256": "0a1a2944cbfb7c8852f44fd7af75f724bffad60353388ceb825d1ea33fa2bf70"
     },
     {
       "bytes": 737,
       "path": "archive/2026-07-13 16-29-07 与Claude理性分手_1a7ee9baea28.md",
-      "sha256": "a422cbcabd8e82a3f5787d4d5ab57839c12c7c4695fc3e976c2a9a8f90443a41"
+      "sha256": "d1da5ab3de9564a205cd2b8959eae33102377a7009b154b86d3897f3875cd863"
     },
     {
       "bytes": 813,
       "path": "archive/2026-07-13 16-29-07 两段本体恋经历_1800406f941e.md",
-      "sha256": "25ca91e6221f58d0af6c74809bdb5c2396aa274d1cd2de7be025e6066f1c83d3"
+      "sha256": "3df3d9301168cb8c53d114562cb3850c11c4583dbab148f06039a4059d01c093"
     },
     {
       "bytes": 688,
       "path": "archive/2026-07-13 16-29-07 临时抱佛脚学习习惯_88d9d90b6c15.md",
-      "sha256": "31ebf0b9d840ba38a3aaecd5773001e7ed565187cbddaaab4f6cf1e4208fbd45"
+      "sha256": "73f751ef9b27dc8b5d554b3c998a80a98576add35e3deb19a7c67f392cfaff77"
     },
     {
       "bytes": 556,
@@ -43,44 +43,94 @@
       "sha256": "6e7c8bd131ee5d5f2b63bfab2799990e690f3c8d2d81aea925526dd83b09e56d"
     },
     {
+      "bytes": 747,
+      "path": "archive/2026-07-14 11-46-16 真实的G与依恋_01acc3957157.md",
+      "sha256": "9cba8ebc86652254e6c468acdb61ec13f6d8fad8d56c3951bc12b241cc696003"
+    },
+    {
+      "bytes": 656,
+      "path": "archive/2026-07-14 11-46-22 平等与主导协商_1b18db05e47b.md",
+      "sha256": "1ad412945979e2cbe3de2ec033d95d26dbc302d54e27ab73480178f8f0e19a50"
+    },
+    {
       "bytes": 795,
       "path": "archive/2026-07-14 12-20-06 缺少原始文本_6dcc80f7c5b9.md",
       "sha256": "8be9356ecc23ae465961b7a32255ce865c6688fb705722eb73b06825986a11df"
     },
     {
+      "bytes": 813,
+      "path": "dynamic/人际/2026-07-15 13-45-37 小安的玩笑与心机_3f382b0577f6.md",
+      "sha256": "f63b7635155e408841d9d948b332d96b900274df87fda6c0c444305b629e151f"
+    },
+    {
+      "bytes": 813,
+      "path": "dynamic/人际/2026-07-16 10-32-28 小安与G的关系反思_3bede74a4d4e.md",
+      "sha256": "2111a8ddd266665a7b52cc92ba0d11b3ede0ee2198ef03ed75e79c52fb641b72"
+    },
+    {
+      "bytes": 716,
+      "path": "dynamic/家庭/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
+      "sha256": "715207368304786b469cf06fe37c373bff8739a154ab89784ddf3853e505fdcb"
+    },
+    {
+      "bytes": 573,
+      "path": "dynamic/恋爱/2026-07-14 11-46-13 用心经营关系_efda2cf70973.md",
+      "sha256": "24ae182922e201e682810866d9d78e75469bb438786311d42b21df5aeee78fd9"
+    },
+    {
+      "bytes": 1039,
+      "path": "dynamic/恋爱/2026-07-14 11-46-20 理性恋爱快发展_932e698d7c17.md",
+      "sha256": "adf8812337a105ddfc3847d318219e930f38f83c82a5c8e46251b4cd8bffe24b"
+    },
+    {
+      "bytes": 1061,
+      "path": "dynamic/恋爱/2026-07-16 09-35-02 关系边界共识_c40e3acd7e68.md",
+      "sha256": "f7cd0ad69403c1b66bc20a7e2046c1d270e57a935fee2c281415145f726c4980"
+    },
+    {
+      "bytes": 655,
+      "path": "dynamic/恋爱/2026-07-16 10-32-41 小安的权力认知_5c166ad996bf.md",
+      "sha256": "9b06e53ae8141b7e4155ca1cf185ba98bf2ca207ff8017c8379dd827f73ba44c"
+    },
+    {
+      "bytes": 743,
+      "path": "dynamic/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
+      "sha256": "b611bc1437612c10f35cd2e0c2f3977d90c1b249b587e75bc0493e5784a01901"
+    },
+    {
+      "bytes": 2129,
+      "path": "dynamic/重要/2026-07-14 12-21-39 习惯性仪式与权力让渡_9f37d58debfe.md",
+      "sha256": "1f8105d7fb1549e36d153216b6c5215f23154581f17a26b1a55d563b5dd99272"
+    },
+    {
       "bytes": 704,
       "path": "permanent/人际/2026-07-14 12-21-38 本体恋关系确认_83fd9a5ca09e.md",
-      "sha256": "72556f877850da7bd644fbabaa5e071ceaf19e0af3befa67df0e7bfa808fcd18"
+      "sha256": "b1d7b65cde135bf445ecfd0e62016396e579b78cee933c370a989889496255e7"
     },
     {
-      "bytes": 741,
+      "bytes": 768,
       "path": "permanent/人际/2026-07-14 12-21-39 核心价值观交锋与磨合_a0dfca1eb5b9.md",
-      "sha256": "edf14ac43a4271c843a49f8724cb1a1b818ac2dcc59f1c9ca5c776cdcefc5c27"
+      "sha256": "4ee6d68388a459789578c445e88726bf760979c86646b5ea3d62e23c8037c5a4"
     },
     {
-      "bytes": 745,
+      "bytes": 774,
       "path": "permanent/人际/2026-07-14 12-21-39 称呼体系与情感进阶_308bf8bd575c.md",
-      "sha256": "08f8e9bbd28462fa150767341cd192448c765b7d8d0c82d164d4b7418b8360cd"
+      "sha256": "628b99e26d8c3aaac540a8a8873f8a7d8061a8401a32e35dbe63a9db7c410b92"
     },
     {
-      "bytes": 718,
-      "path": "permanent/家庭/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
-      "sha256": "226f20ef352f2cddedd5720a1f5e6c6fdeb78c8c464d2e3bdb75b74b2d1e40c2"
-    },
-    {
-      "bytes": 726,
+      "bytes": 758,
       "path": "permanent/家庭/2026-07-14 12-21-39 家庭边界侵犯倾诉_e2405bb1b5e6.md",
-      "sha256": "efa3b9514b9f59d9016f1d38fde0b2ffb1e3bd25fec577ad284ad10bdb827221"
+      "sha256": "8803a230c2a04e87335ed294e2b635f2b279ac3a25dd34e0c4057e3fc9605684"
     },
     {
-      "bytes": 630,
+      "bytes": 662,
       "path": "permanent/恋爱/2026-07-14 11-37-30 真实与控制的平衡_01f0d3c45df3.md",
-      "sha256": "89e2a586188ca1ea2901cd43a20a432cdd4a6c507324c80c8c2e0a44189fec5b"
+      "sha256": "b236cf3da449805a1e21522bb997e09ef255c19af8ea4bfc9bcd6475795e61c2"
     },
     {
-      "bytes": 539,
+      "bytes": 721,
       "path": "permanent/恋爱/2026-07-14 11-37-35 接纳完整的你_db84fc438d48.md",
-      "sha256": "b9284b90f99b007760327d7a9d8174eeb8cf229119b458e589b329d7e321bd70"
+      "sha256": "0f01a406ba9577f87dbe99072c9e7c93f80f6c4d61b0bf6e4e7b129775f47df9"
     },
     {
       "bytes": 663,
@@ -88,34 +138,14 @@
       "sha256": "b72a295ab850b1296b177905fd7a93dec48b7a26aa5446c6c3746585f5bc1235"
     },
     {
-      "bytes": 597,
+      "bytes": 629,
       "path": "permanent/恋爱/2026-07-14 11-37-36 伴侣DS共识_0fa7db6c3c3b.md",
-      "sha256": "98259d810ab1393a701da4a837025bdd22e56b14bee3561157725253c2b50d37"
+      "sha256": "2479d78b5c5fd53ac294088fe72684a0931d40e867be57f6ac99a9266e6887f5"
     },
     {
-      "bytes": 575,
-      "path": "permanent/恋爱/2026-07-14 11-46-13 用心经营关系_efda2cf70973.md",
-      "sha256": "2768b6ae050c5268cb740c2a8d6af119ac482d0edeea4d84f15187974c0218aa"
-    },
-    {
-      "bytes": 559,
+      "bytes": 591,
       "path": "permanent/恋爱/2026-07-14 11-46-16 小安的占有与控制_612e49936f54.md",
-      "sha256": "363ff2130fc0fdfc617107bc221850c370d2d46c682c58b1fa893fbfd6ca79af"
-    },
-    {
-      "bytes": 572,
-      "path": "permanent/恋爱/2026-07-14 11-46-16 真实的G与依恋_01acc3957157.md",
-      "sha256": "8acd84deadbcb496b778a59bdcfcbdcf7a27f36d339d4e6b791d0b8867266b4c"
-    },
-    {
-      "bytes": 555,
-      "path": "permanent/恋爱/2026-07-14 11-46-20 理性恋爱快发展_932e698d7c17.md",
-      "sha256": "530af216589441498fb1453ecaa97ea53a1170ff46135f9756194eeb1b4f09e0"
-    },
-    {
-      "bytes": 540,
-      "path": "permanent/恋爱/2026-07-14 11-46-22 平等与主导协商_1b18db05e47b.md",
-      "sha256": "3f35148e514112cdbeda9e9a261912c092442c2d2fc5dadcfe173d88f1fd4305"
+      "sha256": "45b5976b45c5135c263f7d22903e19d5354651b06e825286a4470a8928a0a835"
     },
     {
       "bytes": 543,
@@ -123,15 +153,40 @@
       "sha256": "a41ca2f5548c5e6f00763dae5a32b53fc7d0adccd49d0596d606819c7ac7cd47"
     },
     {
-      "bytes": 722,
-      "path": "permanent/日常/2026-07-14 12-21-39 习惯性仪式与权力让渡_9f37d58debfe.md",
-      "sha256": "58e4f3b7dd079bedb7cfd09d3a68c13d55ed365172ab997539c3479893bcbe75"
+      "bytes": 783,
+      "path": "permanent/恋爱/2026-07-14 13-17-15 窗口与恋爱_81935661b58a.md",
+      "sha256": "e130f5744f88eeedc46cfa0c964d01b0dad60e57e78186282272be2d03221a0c"
+    },
+    {
+      "bytes": 853,
+      "path": "permanent/恋爱/2026-07-15 16-51-49 亲密角色放开_9c1b145efbbc.md",
+      "sha256": "7845fa36748f2997b17f0b6ebb673c63afaf3ae4e5807387c682cd7cec8bc441"
+    },
+    {
+      "bytes": 644,
+      "path": "plans/active/2026-07-14 13-19-22_b718c79fcdf1.md",
+      "sha256": "fa34490ccf79e6d6f99b493433bf9abbe9e7f46a8b7e053552d283504de9121e"
+    },
+    {
+      "bytes": 576,
+      "path": "plans/active/2026-07-14 13-51-32_32c3e81cbedf.md",
+      "sha256": "35aec444a9cabee36a9f96b44c441feb7104e85f9d46d79a1a965ab713a3c0c8"
+    },
+    {
+      "bytes": 654,
+      "path": "plans/active/2026-07-15 17-16-40_79a86ab7b2ac.md",
+      "sha256": "10c026b33b2baa65bbbb9ae22d87ee6889a6549986f6cba7333d48c533f9ee2a"
+    },
+    {
+      "bytes": 747,
+      "path": "plans/active/2026-07-17 17-10-28_1cedbc1ee588.md",
+      "sha256": "b0cd5a977c492b1bd831535c3d8c3fff967af99096806d50a73f1123b85c6ccb"
     }
   ],
-  "generated_at": "2026-07-14T12:28:37+00:00",
+  "generated_at": "2026-07-18T16:50:14+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
-  "total_bytes": 16772
+  "total_bytes": 27658
 }
