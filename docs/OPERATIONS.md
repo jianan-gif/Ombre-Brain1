@@ -1,5 +1,19 @@
 # Ombre Brain 可靠性与恢复手册
 
+## 安全部署向导
+
+首次登录后打开 `/onboarding`，只选择部署意图：
+
+- 本机：自己的设备或可信内网使用，OAuth 可关闭。
+- 公网安全：HTTPS 域名远程使用，OAuth 强制开启。
+- 高级：已有反向代理或外部鉴权时自行选择，系统仍持续报告风险。
+
+向导写入现有 `config.yaml`，不会创建第二套配置。OAuth 与传输模式在进程启动时绑定，保存后必须重启。系统体检的“实际生效配置”同时显示已保存值、当前进程值、环境变量来源和持久卷状态；只有环境变量确实改变保存值时才告警。
+
+公网安全模式中的“公网连接地址”是 OAuth 与 MCP 共同使用的外部来源地址。可以粘贴域名、`https://域名` 或完整的 `https://域名/mcp`，系统会保存为规范化的 HTTPS origin，并自动生成 `/mcp` 地址。修改地址后需重启服务，并让 MCP 客户端重新连接/授权；绑定旧地址的授权码或 refresh token 会返回 `invalid_grant`，不会继续签发随后必然 401 的 token。
+
+Docker/Zeabur 的持久卷统一挂载 `/app/buckets`，配置路径为 `/app/buckets/config.yaml`。Zeabur 从 GitHub 部署时只需添加模型 Key、挂载该卷、绑定 HTTPS 域名，再从向导选择“公网安全模式”。不要在平台中长期保留 `OMBRE_MCP_REQUIRE_AUTH` 或 `OMBRE_TRANSPORT`，除非明确希望平台覆盖 Dashboard。
+
 这份文档说明 Ombre Brain 在断网、模型限流、外部编辑和备份恢复时真正保证什么。
 
 ## 数据边界
@@ -67,11 +81,58 @@ python tools/check_buckets.py --json
 | ZIP 上传被拒绝 | 本地 vault 未写入 | 按错误修复损坏、路径穿越、重复项或清单不一致，重新导出 |
 | SQLite quick_check 失败 | Markdown 真源通常仍在 | 先备份 Markdown，移走损坏的派生库，再重建向量；不要删除 Markdown |
 | outbox 长时间不下降 | 记忆正文仍安全 | 查看熔断状态、最近错误、Key/模型/维度和 provider 连通性 |
+| 编辑记忆、热更新或重启提示 `Cross-origin request rejected` | 写请求被来源防护拒绝，原数据未改动；这不是 CORS 缺失 | 优先手动升级到 2.7.1+；nginx 必须保留公网 authority，传入 `X-Forwarded-Proto: https`，并让应用精确信任最后一跳代理 CIDR。不要添加 CORS 头或改写浏览器 `Origin` |
+
+### nginx 反代与 v2.7.0 脱困
+
+`Cross-origin request rejected` 是应用的 CSRF 来源校验，不是浏览器 CORS
+预检失败。nginx 增加 `Access-Control-Allow-Origin` 不会改变请求的
+`Origin`、Host 或协议，因此不能修复这个 403，还可能制造重复 CORS 响应头。
+
+同机 nginx 反代到默认 Docker 端口时可使用：
+
+```nginx
+location / {
+    proxy_pass http://127.0.0.1:18001;
+    proxy_http_version 1.1;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_buffering off;
+    proxy_read_timeout 3600s;
+}
+```
+
+`$http_host` 会保留非默认公网端口；不要用上游地址覆盖 Host，也不要只发送
+RFC 7239 `Forwarded` 而省略上述 `X-Forwarded-*`。如果 nginx 前面还有 CDN，
+先正确配置 nginx `real_ip`，再使用清洗后的 `$remote_addr`。
+
+v2.7.1+ 只采信来自 `OMBRE_TRUSTED_PROXY_CIDRS` 的转发头。这里应填写
+**直接连接 OB 的最后一跳 nginx/代理地址或网段**，不是浏览器公网 IP、域名或
+`0.0.0.0/0`。Docker 中该 peer 常是精确的 `172.x` 网桥网段；修改
+`deploy/.env` 后要用 `docker compose ... up -d --force-recreate`，仅重启旧容器
+不会注入新增环境变量。
+
+v2.7.0 的热更新和重启按钮本身也是 POST，因此可能一起被旧 CSRF bug 卡住。
+先按上面配置并 reload nginx；若仍无法使用 Dashboard，请不要给更新接口关闭
+CSRF，直接从宿主机升级：
+
+```bash
+# 预构建镜像部署
+docker compose -f deploy/docker-compose.user.yml pull
+docker compose -f deploy/docker-compose.user.yml up -d --force-recreate
+
+# 源码构建部署则先 git pull，再重建
+git pull --ff-only origin main
+docker compose -f deploy/docker-compose.yml up -d --build --force-recreate
+```
 
 ## 访问控制
 
 - Dashboard 会话默认 30 天过期，可通过 `OMBRE_DASHBOARD_SESSION_DAYS` 调整为 1-365 天。认证文件与 token 文件使用原子写入，并在支持的系统上限制为仅文件所有者可读写。
-- 登录和 OAuth 授权共用失败限流。`X-Forwarded-For` / `X-Forwarded-Proto` / `X-Forwarded-Host` 只在请求确实来自可信反代时采用；内置 Tunnel 使用回环地址，外置 nginx/Caddy/容器反代应通过 `OMBRE_TRUSTED_PROXY_CIDRS` 添加准确 CIDR，不能使用 `0.0.0.0/0`。
+- 登录和 OAuth 授权共用失败限流。`X-Forwarded-For` / `X-Forwarded-Proto` / `X-Forwarded-Host` 只在请求确实来自可信反代时采用；内置 Tunnel 使用回环地址，外置 nginx/Caddy/容器反代应通过 `OMBRE_TRUSTED_PROXY_CIDRS` 添加直接连接 OB 的最后一跳代理 CIDR，不能使用 `0.0.0.0/0`。三个官方 Compose 模板都会把该变量从 `.env` 传入容器。
+- 内置 JSON OAuth 状态按单进程部署设计。官方 Docker/Render 启动方式使用单 worker；自行部署时不要启动多个 Web worker 或多个共享同一数据卷的副本，否则授权状态不具备跨进程事务保证。
 - `limits.max_management_request_bytes` 限制普通 Dashboard/OAuth 写请求；导入文本和迁移 ZIP 仍使用各自更大的流式上限。
 - `/api/update-info` 包含数据目录和容器信息，因此需要 Dashboard 登录；公开健康检查仅使用 `/health` 和 `/api/version`。
 

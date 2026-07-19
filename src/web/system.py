@@ -18,6 +18,8 @@ import os
 import time
 from typing import Any
 
+import yaml
+
 from starlette.requests import Request
 from starlette.responses import Response
 
@@ -44,6 +46,8 @@ from ombrebrain.policy import RedLineContract, RedLineFeatureSpec, SurfaceDecisi
 from ombrebrain.protocol import PublicToolDesignContract, PublicToolSpec
 from ombrebrain.resilience import CrashRecoveryContract, CrashRecoveryPlan, PathStep
 from ombrebrain.retrieval import SurfaceContextCompiler
+from ombrebrain.security.deployment_profile import effective_configuration_report
+from utils import config_file_path
 
 try:
     from errors import recent_errors, format_error, clear_errors_log, get_recent_logs  # type: ignore
@@ -55,15 +59,61 @@ try:
 except ImportError:  # pragma: no cover
     from ..utils import parse_bool  # type: ignore
 
-try:
-    from vault_health import inspect_vault  # type: ignore
-except ImportError:  # pragma: no cover
-    from ..vault_health import inspect_vault  # type: ignore
+from ombrebrain.storage.vault_health import inspect_vault
 
 _LOGS_DEFAULT_LIMIT = 200
 _LOGS_MAX_LIMIT = 2000
+_MAX_LOG_TAIL_SCAN_BYTES = 8 * 1024 * 1024
+_LOG_TAIL_CHUNK_BYTES = 64 * 1024
 _ERRORS_DEFAULT_LIMIT = 50
 _ERRORS_MAX_LIMIT = 500
+
+
+def _read_filtered_log_tail(
+    path: str,
+    *,
+    keep: tuple[str, ...] | None,
+    limit: int,
+    max_bytes: int = _MAX_LOG_TAIL_SCAN_BYTES,
+) -> list[str]:
+    """Return matching log lines oldest-first from a bounded file tail.
+
+    The dashboard only needs a small tail.  Reading the complete log file let
+    an oversized or unrotated log create a second, much larger in-memory copy.
+    Work backwards in fixed-size binary chunks and discard an incomplete line
+    when the byte budget is reached.
+    """
+
+    selected: list[str] = []
+    with open(path, "rb") as handle:
+        handle.seek(0, os.SEEK_END)
+        position = handle.tell()
+        remaining = max(0, int(max_bytes))
+        carry = b""
+        while position > 0 and remaining > 0 and len(selected) < limit:
+            chunk_size = min(_LOG_TAIL_CHUNK_BYTES, position, remaining)
+            position -= chunk_size
+            remaining -= chunk_size
+            handle.seek(position)
+            block = handle.read(chunk_size) + carry
+            parts = block.split(b"\n")
+            carry = parts.pop(0)
+            for raw_line in reversed(parts):
+                line = raw_line.decode("utf-8", errors="replace").rstrip("\r")
+                if not line:
+                    continue
+                if keep is None or any(f" {level}: " in line for level in keep):
+                    selected.append(line)
+                    if len(selected) >= limit:
+                        break
+
+        if position == 0 and carry and len(selected) < limit:
+            line = carry.decode("utf-8", errors="replace").rstrip("\r")
+            if line and (keep is None or any(f" {level}: " in line for level in keep)):
+                selected.append(line)
+
+    selected.reverse()
+    return selected
 
 
 def _check(
@@ -572,6 +622,18 @@ def _rel_path(path: str, root: str) -> str:
         return path
 
 
+def _read_persisted_runtime_config() -> tuple[str, dict[str, Any]]:
+    """读取未应用环境覆盖的 config.yaml，供“已保存/实际生效”对照。"""
+    path = config_file_path()
+    if not os.path.exists(path):
+        return path, {}
+    with open(path, "r", encoding="utf-8") as handle:
+        raw = yaml.safe_load(handle) or {}
+    if not isinstance(raw, dict):
+        raise ValueError("config.yaml 顶层必须是对象")
+    return path, raw
+
+
 async def build_system_diagnostics() -> dict[str, Any]:
     """Build a read-only Dashboard diagnostics report.
 
@@ -620,6 +682,63 @@ async def build_system_diagnostics() -> dict[str, Any]:
         },
         action=storage_action,
     ))
+
+    try:
+        persisted_path, persisted_cfg = _read_persisted_runtime_config()
+        effective_report = effective_configuration_report(
+            cfg,
+            persisted_cfg,
+            environment=os.environ,
+            config_path=persisted_path,
+            persistence=persistence,
+        )
+        effective_auth = bool(effective_report["effective"]["mcp_require_auth"])
+        profile = str(effective_report.get("profile") or "unconfigured")
+        overrides = effective_report.get("overrides") or []
+        manual_auth_configured = bool(effective_report.get("manual_auth_configured"))
+        if profile == "public_secure" and not effective_auth:
+            config_status = "error"
+            config_message = "公网安全模式的实际 OAuth 已关闭，当前配置不安全"
+            config_action = "删除/修正 OMBRE_MCP_REQUIRE_AUTH，或重新运行安全部署向导"
+        elif profile == "unconfigured" and not manual_auth_configured:
+            config_status = "warning"
+            config_message = "尚未选择部署模式；系统仍按安全默认运行"
+            config_action = "打开 /onboarding 选择本机、公网安全或高级模式，或在「⑥ MCP 连接」直接设置鉴权"
+        elif overrides:
+            config_status = "warning"
+            config_message = f"部署模式已配置，但有 {len(overrides)} 个启动环境变量覆盖已保存设置"
+            config_action = "按详情中的变量名修改 Zeabur/Render/Docker 环境变量"
+        elif effective_report.get("restart_required"):
+            config_status = "warning"
+            config_message = "部署设置已保存，但当前进程尚未采用新值"
+            config_action = "使用 Dashboard 右上角重启按钮使设置生效"
+        elif profile == "unconfigured" and manual_auth_configured:
+            config_status = "ok"
+            config_message = (
+                "未使用部署向导，但已在「MCP 连接」手动配置鉴权（当前："
+                + ("需要鉴权" if effective_auth else "已关闭鉴权") + "）"
+            )
+            config_action = ""
+        else:
+            config_status = "ok"
+            config_message = "已保存配置与当前实际生效值一致"
+            config_action = ""
+        checks.append(_check(
+            "effective_config",
+            "实际生效配置",
+            config_status,
+            config_message,
+            details=effective_report,
+            action=config_action,
+        ))
+    except (OSError, ValueError, yaml.YAMLError) as exc:
+        checks.append(_check(
+            "effective_config",
+            "实际生效配置",
+            "error",
+            f"无法读取或比较 config.yaml：{exc}",
+            action="检查 OMBRE_CONFIG_PATH 指向的 YAML 文件与读取权限",
+        ))
 
     try:
         stats = await sh.bucket_mgr.get_stats() if sh.bucket_mgr else {}
@@ -1400,13 +1519,9 @@ def register(mcp) -> None:
                  "ALL": None}
         keep = allow.get(level, ("WARNING", "ERROR"))
         try:
-            with open(log_file, "r", encoding="utf-8", errors="replace") as f:
-                lines = f.readlines()
-            if keep is not None:
-                lines = [ln for ln in lines if any(f" {lv}: " in ln for lv in keep)]
-            lines = lines[-limit:]
+            lines = _read_filtered_log_tail(log_file, keep=keep, limit=limit)
             return JSONResponse({
-                "lines": [ln.rstrip("\n") for ln in lines],
+                "lines": lines,
                 "log_file": log_file,
                 "level": level,
                 "count": len(lines),

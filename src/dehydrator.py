@@ -30,6 +30,7 @@ import json
 import asyncio
 import hashlib
 import sqlite3
+import weakref
 import logging
 from typing import Optional
 
@@ -37,13 +38,10 @@ from openai import AsyncOpenAI
 
 from utils import clean_llm_json, count_tokens_approx, parse_bool, positive_float
 
-try:
-    from provider_detect import is_gemini_native_host, strip_native_resource_prefix
-except ImportError:  # pragma: no cover
-    from .provider_detect import (  # type: ignore
-        is_gemini_native_host,
-        strip_native_resource_prefix,
-    )
+from ombrebrain.integrations.provider_detect import (
+    is_gemini_native_host,
+    strip_native_resource_prefix,
+)
 
 logger = logging.getLogger("ombre_brain.dehydrator")
 
@@ -59,7 +57,11 @@ logger = logging.getLogger("ombre_brain.dehydrator")
 # 改任何会影响脱水/合并输出的 prompt 时 +1，使存量缓存自然失效（见 _content_key）。
 # v2：DEHYDRATE/MERGE 加入「视角铁律」，强制保留第一人称（我 / 人名）。
 # v3：脱水结果只接受既定 JSON schema，隔离模型追加的评论、立场与未知字段。
-_PROMPT_VERSION = 3
+# v4：视角铁律补反向条款——v2 只防「我被抹掉」方向（规则和示例都是单向的），
+#     脱水 LLM 在含糊处过度矫正：省略主语的句子被归给「我」（实案：正文
+#     「07-07嚎啕大哭…吊她」经 /breath-hook 脱水成「07-07我嚎啕大哭…吊我」，
+#     主语翻转）。补反向同罪条款 + 省略主语处理规则 + 反向示例。
+_PROMPT_VERSION = 4
 
 # --- LLM 默认参数 ---
 _DEFAULT_MODEL = "gemini-2.0-flash"
@@ -130,9 +132,15 @@ def _perspective_rule(human: str) -> str:
         f"- 人类那一方一律称呼「{human}」（原文里的「你/她/他」都指「{human}」，按名字还原）。\n"
         "- 严禁把「我」和「" + human + "」合并成「双方」「彼此」「对方」「用户」等抹掉视角的中性词。\n"
         "- 谁做的动作、谁的感受，就归到谁名下，不得混同或对调。\n"
-        "示例：『我也在她这里看到了自己没见过的碎片』\n"
+        f"- 反方向同罪：严禁把「{human}」的动作/情绪归给「我」。\n"
+        "- 原文省略主语时，先从紧邻上下文判断归属；判断不了就照抄原句结构、"
+        "保持主语省略——禁止靠猜补一个「我」。\n"
+        "示例一：『我也在她这里看到了自己没见过的碎片』\n"
         f"  ✗ 错（视角丢失）：双方在互动中互相发现对方未知的情感碎片\n"
-        f"  ✓ 对（视角保留）：我在{human}这里看到了自己没见过的碎片"
+        f"  ✓ 对（视角保留）：我在{human}这里看到了自己没见过的碎片\n"
+        f"示例二：『{human}刚下班就来报信——嚎啕大哭后还是把库建好了』\n"
+        f"  ✗ 错（主语翻转）：我嚎啕大哭后把库建好了\n"
+        f"  ✓ 对（归属正确）：{human}嚎啕大哭后把库建好了"
     )
 
 
@@ -314,6 +322,16 @@ class Dehydrator:
         db_path = os.path.join(config["buckets_dir"], "dehydration_cache.db")
         self.cache_db_path = db_path
         self._cache_conn: sqlite3.Connection = self._init_cache_db()
+        # Keep the cache connection persistent for hot-path lookups, but do not
+        # leak the Windows file handle when a runtime/test instance is released.
+        # ``weakref.finalize`` also runs during interpreter shutdown in reverse
+        # creation order, before an enclosing temporary vault is cleaned up.
+        self._cache_finalizer = weakref.finalize(self, self._cache_conn.close)
+
+    def close(self) -> None:
+        """Close the persistent cache connection; safe to call repeatedly."""
+
+        self._cache_finalizer()
 
     def _init_cache_db(self) -> sqlite3.Connection:
         """Open (or create) the dehydration cache DB; return a persistent connection."""
@@ -503,7 +521,11 @@ class Dehydrator:
         if self.thinking_budget is not None:
             payload["generationConfig"]["thinkingConfig"] = {"thinkingBudget": self.thinking_budget}
         async with httpx.AsyncClient(timeout=self.timeout_seconds) as client:
-            r = await client.post(url, params={"key": self.api_key}, json=payload)
+            r = await client.post(
+                url,
+                headers={"x-goog-api-key": self.api_key},
+                json=payload,
+            )
             r.raise_for_status()
         data = r.json()
         candidates = data.get("candidates", [])
@@ -946,7 +968,7 @@ class Dehydrator:
         调用 LLM API 执行日记整理。
         """
         raw = await self._chat(
-            DIGEST_PROMPT,
+            DIGEST_PROMPT + _perspective_rule(self.human),
             content[:_DIGEST_INPUT_LIMIT],
             max_tokens=_DIGEST_MAX_TOKENS,
             temperature=_DIGEST_TEMPERATURE,

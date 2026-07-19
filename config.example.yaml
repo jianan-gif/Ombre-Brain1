@@ -11,6 +11,15 @@
 # streamable-http: 远程使用（标准 HTTP，对隧道/CDN/代理友好）
 transport: "stdio"
 
+# --- Public deployment origin / 公网部署来源地址 ---
+# 公网安全模式填写外部 HTTPS origin；不要包含凭据、查询参数或片段。
+# Dashboard 也接受完整的 https://example.com/mcp，并会规范化为下面的 origin。
+# OAuth 与 MCP resource 校验共用此值；修改后必须重启并重新完成客户端授权。
+# Set the external HTTPS origin for public-secure deployments. Dashboard also accepts a full
+# https://example.com/mcp URL and stores its canonical origin. Restart and reauthorize after changes.
+deployment:
+  public_url: ""  # e.g. "https://ob.example.com"
+
 # --- Log level / 日志级别 ---
 log_level: "INFO"
 
@@ -27,6 +36,26 @@ log_level: "INFO"
 # ⚠️ When disabled, do not expose the service directly to the public internet without
 #    another auth layer at the reverse proxy — otherwise anyone can read/write memories.
 mcp_require_auth: true
+
+# --- MCP auth mode / MCP 鉴权模式（仅 mcp_require_auth: true 时生效）---
+# "oauth" (默认): 上面的 OAuth 2.1 + PKCE。
+# "token": 改用静态密钥鉴权，与 OAuth 互斥——选了 token 后 OAuth 的 discovery/register/
+#          authorize/token 路由全部 404。适合支持自定义请求头、但走不通浏览器 OAuth
+#          授权流程的第三方 MCP 客户端。密钥填在 mcp_token（或环境变量 OMBRE_MCP_TOKEN，
+#          优先级更高），也可用环境变量 OMBRE_MCP_AUTH_MODE=token 覆盖。
+# 调用方式：请求头 Authorization: Bearer <token> 或 Ombre-MCP-Token: <token>（不支持 URL 参数）。
+# "oauth" (default): OAuth 2.1 + PKCE above.
+# "token": switch to a static secret instead, mutually exclusive with OAuth — once selected,
+#          the OAuth discovery/register/authorize/token routes all 404. Useful for third-party
+#          MCP clients that support custom headers but can't complete browser OAuth. Set the
+#          secret via mcp_token (or env var OMBRE_MCP_TOKEN, which takes priority); env var
+#          OMBRE_MCP_AUTH_MODE=token also works.
+# Send it via header Authorization: Bearer <token> or Ombre-MCP-Token: <token> (no URL param).
+# ⚠️ 无论选 oauth / token / 关闭，都不要把服务直接暴露公网——Token 泄露等同任何人可读写全部记忆。
+# ⚠️ Regardless of mode, never expose this service directly to the public internet — a leaked
+#    token is equivalent to open read/write access to all memories.
+mcp_auth_mode: "oauth"
+mcp_token: ""
 
 # --- HTTP hooks auth / HTTP 钩子鉴权 ---
 # /breath-hook and /dream-hook are protected by default.
