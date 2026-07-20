@@ -113,9 +113,9 @@
       "sha256": "b611bc1437612c10f35cd2e0c2f3977d90c1b249b587e75bc0493e5784a01901"
     },
     {
-      "bytes": 2129,
+      "bytes": 2128,
       "path": "dynamic/重要/2026-07-14 12-21-39 习惯性仪式与权力让渡_9f37d58debfe.md",
-      "sha256": "1f8105d7fb1549e36d153216b6c5215f23154581f17a26b1a55d563b5dd99272"
+      "sha256": "42b318d43634f65b3e556834197ac64fb7e601e5091081044a6514507b4337b4"
     },
     {
       "bytes": 538,
@@ -183,10 +183,10 @@
       "sha256": "b0cd5a977c492b1bd831535c3d8c3fff967af99096806d50a73f1123b85c6ccb"
     }
   ],
-  "generated_at": "2026-07-19T14:27:41+00:00",
+  "generated_at": "2026-07-20T14:30:00+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
-  "total_bytes": 28234
+  "total_bytes": 28233
 }
