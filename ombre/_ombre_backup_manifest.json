@@ -188,20 +188,20 @@
       "sha256": "10c026b33b2baa65bbbb9ae22d87ee6889a6549986f6cba7333d48c533f9ee2a"
     },
     {
-      "bytes": 747,
+      "bytes": 762,
       "path": "plans/active/2026-07-17 17-10-28_1cedbc1ee588.md",
-      "sha256": "b0cd5a977c492b1bd831535c3d8c3fff967af99096806d50a73f1123b85c6ccb"
+      "sha256": "1874c25dee4e7b5c401e436ecb7e13fce4b4efc156f4ccde3a097a9505f08d94"
     },
     {
-      "bytes": 727,
+      "bytes": 1434,
       "path": "plans/active/2026-07-21 12-38-32_abd9afc3ea74.md",
-      "sha256": "0a9f67249b2469b3965d4578ef04fd09d00a9c2c01b1bc8ec0f4f194252c1786"
+      "sha256": "800c183d6e30cbd1f0cb59d1dd1b7291b3324b085b4924ef71803515eaed3912"
     }
   ],
-  "generated_at": "2026-07-22T14:34:14+00:00",
+  "generated_at": "2026-07-22T16:15:31+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
-  "total_bytes": 31084
+  "total_bytes": 31806
 }
