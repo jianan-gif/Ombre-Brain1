@@ -25,7 +25,7 @@ trace 是 OB 唯一的「写元数据」入口，承接所有桶字段更新和�
                      tags, resolved, pinned, digested, content, delete,
                      status, weight, dont_surface, why_remembered,
                      meaning_append, meaning_replace, media_append, media_replace,
-                     hard_delete, delete_reason, old_str, new_str) → str
+                     hard_delete, delete_reason, restore, old_str, new_str) → str
 ========================================
 """
 
@@ -70,6 +70,7 @@ async def trace_core(
     media_replace: Optional[list | str] = None,
     hard_delete: Optional[bool] = False,
     delete_reason: Optional[str] = "",
+    restore: Optional[bool] = False,
     old_str: Optional[str] = "",
     new_str: Optional[str] = None,
 ) -> str:
@@ -120,6 +121,7 @@ async def trace_core(
     meaning_append = str(meaning_append)
     delete = parse_bool(delete, default=False)
     hard_delete = parse_bool(hard_delete, default=False)
+    restore = parse_bool(restore, default=False)
     delete_reason = "" if delete_reason is None else str(delete_reason).strip()
 
     def _finite_float(value, default: float) -> float:
@@ -172,6 +174,7 @@ async def trace_core(
         "content_length": len(content or ""),
         "delete": delete,
         "hard_delete": hard_delete,
+        "restore": restore,
         "delete_reason_length": len(delete_reason),
         "old_str_length": len(old_str),
         "new_str_length": len(new_str) if new_str_provided else 0,
@@ -183,6 +186,46 @@ async def trace_core(
 
     if not bucket_id or not bucket_id.strip():
         return "请提供有效的 bucket_id。"
+
+    restore_conflicts = any((
+        delete,
+        hard_delete,
+        bool(name),
+        bool(domain),
+        valence != -1,
+        arousal != -1,
+        importance != -1,
+        bool(tags),
+        resolved != -1,
+        pinned != -1,
+        digested != -1,
+        bool(content),
+        bool(status),
+        weight != -1,
+        dont_surface != -1,
+        bool(why_remembered),
+        bool(meaning_append),
+        meaning_replace is not None,
+        bool(media_append),
+        media_replace is not None,
+        bool(delete_reason),
+        bool(old_str),
+        new_str_provided,
+    ))
+    if restore and restore_conflicts:
+        return (
+            "参数冲突：restore=True 必须单独调用，不能同时删除或修改记忆；"
+            "本次未恢复、未修改。"
+        )
+    if restore:
+        result = await rt.bucket_mgr.restore_archived(bucket_id)
+        if result.get("ok"):
+            return f"已重新回忆并恢复记忆桶: {bucket_id}"
+        if result.get("error") == "not_archived":
+            return f"记忆桶仍在日常记忆中，无需恢复: {bucket_id}"
+        if result.get("error") == "not_found":
+            return f"未找到记忆桶: {bucket_id}"
+        return f"恢复记忆桶失败: {result.get('error', 'unknown_error')}"
 
     patch_args_supplied = bool(old_str) or new_str_provided
     if patch_args_supplied and (delete or hard_delete):
@@ -468,9 +511,9 @@ async def trace_core(
             if not success:
                 return f"修改失败: {bucket_id}"
 
-    # 注意：完整正文更新和局部替换都会在 BucketManager 内汇入
-    # _update_locked(content=...)，并投递 embedding outbox。这里不需要、也不应该
-    # 重复调用 generate_and_store，否则同一条内容会多打一次向量 API。
+    # 注意：完整正文更新和局部替换都会在 BucketManager 内先提交 Markdown，
+    # 释放桶租约后再投递 embedding outbox。这里不需要、也不应该重复调用
+    # generate_and_store，否则同一条内容会多打一次向量 API。
 
     # --- plan 桶人工/AI 显式 resolve → 联动 related_bucket / resolved_by ---
     # rule.md §1：plan 是承诺，承诺被显式放下，承载它的事件桶也不该再浮上来。
@@ -509,9 +552,9 @@ async def trace_core(
         changed += f" → {resolved_hint(bool(updates['resolved']))}"
     if "digested" in updates:
         if updates["digested"]:
-            changed += " → 已隐藏，保留但不再浮现"
+            changed += " → 已从默认/被动浮现与 dream 隐藏，显式检索/审计仍可找回"
         else:
-            changed += " → 已取消隐藏，重新参与浮现"
+            changed += " → 已取消消化隐藏；若无其他隐藏策略，将重新参与默认浮现与 dream"
     if cascaded:
         changed += f" → 同步把 {len(cascaded)} 个关联事件桶也标为已放下（{', '.join(cascaded)}）"
     return f"已修改记忆桶 {bucket_id}: {changed}"

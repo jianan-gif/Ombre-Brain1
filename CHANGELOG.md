@@ -2,6 +2,160 @@
 
 本项目版本号见根目录 `VERSION` 文件，Docker 镜像 tag 与之对应（`p0luz/ombre-brain:<VERSION>`）。
 
+## 2.8.10
+
+### 修复 / Fixed
+
+- 系统诊断不再因 Dashboard 查询而在真实记忆库重建 SQLite 投影或创建 vNext WAL；重扫移出事件循环，向量投影改为逐行校验，避免 512 MiB 实例同时保留全库向量 JSON。
+- embedding 查询缓存改为服务商实际可见前缀的固定长度摘要，不再保留超长记忆原文；向量库替换成功但配置发布失败时明确进入 `publish_failed`，不再误报完成。
+- Dashboard 配置和采样参数统一拒绝越界值、非整数小数、布尔值及 `NaN/Inf`；采样设置与 MCP 静态 Token 只在持久化成功后发布到运行态，并串行提交落盘与运行态更新，避免并发请求造成状态漂移。
+- 14 个公开 MCP 工具统一拒绝未知参数，避免拼错字段被静默忽略后仍产生写入。
+
+### 安全 / Security
+
+- MCP 操作日志不再复制查询、标题等私密文本，异常正文与 traceback 不再进入响应、持久错误或日志，失败响应也不再附带其他调用的全局日志；breath、信件与 `I` 读取的存储原文增加内容绑定的数据边界。
+- OAuth 动态注册增加未授权客户端独立配额和回调地址总长度限制；媒体路径读取拒绝符号链接、特殊文件、并发路径替换及超限内容。
+
+### 测试 / Tests
+
+- 扩充 14 工具 Docker 集成、数值与 payload 边界、持久化失败、并发冲突、隐私日志、路径竞态及 prompt 注入数据边界回归。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.10`，Dashboard、运行时与热更新检查显示一致。
+
+## 2.8.9
+
+### 修复 / Fixed
+
+- 固定 CI 依赖锁解析所使用的包索引时间点；即使从空输出重建也会得到现有生产锁与开发锁，避免上游索引发布新版本后在没有依赖输入变更时误报漂移，同时保持旧实例热更新认可的生产锁摘要不变。
+- 补齐记忆详情对 `meaning` 字段的展示：新桶保存的多条体验锚点现在会在 Dashboard 标题下按原顺序显示为暖金引用块，不再出现“数据已写入但 UI 完全看不到”的情况。
+- 兼容早期手写或旧备份中以单个字符串保存的 `meaning`；空值不生成占位块，长文本保留换行并安全折行。
+- 所有 meaning 文本在进入详情 DOM 前统一转义，恶意 HTML 只会作为普通文字显示；列表接口仍保持精简，不额外传输最多 50 条的完整 meaning 数据。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.9`，Dashboard、运行时与热更新检查显示一致。
+
+## 2.8.8
+
+### 修复 / Fixed
+
+- 修复热更新器把 `requirements.txt` 文本变化误判成实际依赖变化的问题；2.8.8 起依赖门禁以正式 `requirements.lock.txt` 为准，仅兼容旧更新包时回退源清单。官方 GitHub 热更新归档不再携带宽松源清单，因此 2.8.4 存量实例可直接点击热更新进入新版逻辑，无需重建镜像或临时放行 pip。
+- Git 克隆、CI 与常规源码构建仍保留 `requirements.txt`；GitHub Download ZIP 与 Dashboard 热更新归档只携带带 hash 的发布锁。Dockerfile 同步兼容“归档中仅有 lock”的构建方式，避免一键直升修复影响 ZIP 部署用户。
+- 依赖清单比较会规范化 CRLF/LF；Docker 持久代码目录缺少根级清单时会回退镜像内置基线。更新成功、镜像重新播种与崩溃回滚均同步两份清单，失败时连同“原本不存在”的状态一起精确还原。
+- 发布锁真实变化时仍默认拒绝自动安装；明确开启 `OMBRE_UPDATE_ALLOW_PIP` 后改用 `--require-hashes` 安装锁文件。新代码先通过编译自检才会执行 pip，避免失败代码污染解释器环境，不降低原有供应链安全边界。
+- 一键直升兼容规则绑定 2.8.4 的发布锁摘要；兼容规则存续期间若依赖锁发生变化，回归测试会强制失败并要求先提供显式迁移方案。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.8`，Dashboard、运行时与热更新检查显示一致。
+
+## 2.8.7
+
+### 修复 / Fixed
+
+- 修复 `hold` 新建桶时，文件系统不支持锁、资源耗尽或 I/O 异常被一律误判为“锁正在占用”，最终等待 30 秒后才抛 `TimeoutError` 的问题；现在只重试真正的共享/锁冲突，其他系统错误立即保留原始 `errno` 报出，并附带逻辑 key、锁路径与持有者摘要用于诊断。
+- 缩短 `hold/grow/trace/历史导入` 合并与编辑路径的租约：Markdown 原子提交后先释放桶锁，再登记 content/meaning 派生状态；同步兼容模式调用外部 embedding 前也已释放 identical-content、merge-target 与 importance/pinned 配额锁，慢 provider 不再阻塞后续写入。
+- 同桶派生索引按跨进程顺序执行，并在 provider 返回后回读最新 Markdown；并发更新或较新请求被取消时，会继续把 content/meaning 收敛到最新值，避免迟到的旧向量覆盖新状态及重复生成同一最终向量。软删除并发发生时会在独立派生租约内复核是否已恢复，再清理迟到记录。
+- embedding outbox 升级为 content/meaning 分组件调度、退避与哈希 CAS；单个 meaning 长期失败不再饿死正文向量。多个实例共享同一 vault 时，整份队列更新会在稳定 sidecar OS lease 内执行 `reload → merge/CAS → fsync → replace`，避免互相覆盖或旧 worker 复活已完成任务。
+- 补齐历史导入合并、`trace(old_str/new_str)` 同时更新 meaning、恢复归档和全库人名替换等私有更新路径的锁外索引刷新，避免正文已更新但向量仍停留在旧内容。
+- 文件租约初始化、上下文异常、任务取消及显式解锁失败路径统一保证关闭 descriptor；锁文件残留本身不会再被误诊为仍有活动内核租约。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.7`，Dashboard、运行时与热更新检查显示一致。
+
+## 2.8.6
+
+### 修复 / Fixed
+
+- 修复首次完成设置、密码登录或安全问题恢复后，Dashboard 仍停留在空白/未初始化状态、必须手动刷新页面才显示数据的问题；三条认证成功路径现在统一进入同一个完整初始化流程。
+- 受保护的数据请求、心跳与错误轮询延后到认证成功后启动，退出登录时同步停止；并用单飞与认证代次校验处理重复初始化、退出后快速重登和旧 `/auth/status` 响应回写等竞态，避免重复定时器或旧会话覆盖新界面。
+- 当前活动页签（包括 `#letters` 旧书签）会在认证完成后主动刷新，个人条目入口也随本次会话重新加载，无需整页重载。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.6`，Dashboard、运行时与热更新检查显示一致。
+
+## 2.8.5
+
+### 修复 / Fixed
+
+- 增强 Streamable HTTP 对无法正确处理有状态会话或 SSE 响应的客户端的兼容性，覆盖反馈环境中 Kelivo “能读到 `Ombre Brain` 服务名、但显示 0 工具”的表象：`/mcp` 现在使用无状态、直接 JSON 响应，初始化后无需保存/回传 `Mcp-Session-Id` 也能稳定列出全部 14 个工具。
+- 删除 14 工具“主/副 FastMCP 实例 + 启动时操作私有注册表合并”的历史机制；全部工具直接注册到唯一公开实例，避免导入式 ASGI 启动或 SDK 私有结构变化时静默退化为 7 工具。
+- CORS 响应显式暴露 MCP/OAuth 排障头，legacy SSE 启动日志改为输出真实 `/sse` 地址，避免客户端被误导到 `/mcp`。
+- `/mcp` 对省略 `Accept` 或仅发送通配媒体类型的简化客户端自动选择 JSON；显式只接受 SSE 时仍返回协议错误，避免发送客户端无法解析的响应。
+- MCP SDK 声明收紧为 `mcp>=1.27,<2`（生产锁定仍为 1.28.1），防止未来 v2 破坏性变更被非锁定安装静默带入。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.5`。
+
+## 2.8.4
+
+### 修复 / Fixed
+
+- 修复 `digested=1` 只改变字段却仍会出现在无参 `breath()` 的问题：spontaneous/dream 策略现在硬过滤已消化桶，不再受 importance、pinned 或 3% 偶遇影响；带 query 的真实命中、importance 审计和 catalog 目录仍可显式找回。查询结果不足时追加的“非检索命中”随机漂浮也改用 spontaneous 策略，不再旁带 digested、dont_surface 或 anchor 桶。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.4`，Dashboard、运行时与热更新检查显示一致。
+
+## 2.8.3
+
+### 修复 / Fixed
+
+- 修复"我 / Self"面板（dashboard.html 左下角 `I` 按钮）在窄屏设备上宽度固定溢出屏幕、显示不全的问题；连带把详情侧滑面板与自我面板的宽度都改成 `min(定宽, calc(100vw - 边距))` 自适应公式，替换掉原来"基础规则写死宽度 + 单独一条 `@media` 补丁"的模式，避免同类遗漏再次出现。
+- 修复"我 / Self"面板关闭按钮未贴靠面板右边缘的问题。
+- 修复手机端「写一封信」日期选择器点不开：原实现把真实 `<input type="date">` 藏成 1px 透明元素，靠 JS 调 `showPicker()`/`click()` 唤起原生选择器，但 iOS Safari 等移动浏览器只认落在控件本体上的真实点击，程序模拟点击不生效；现在改为直接展示原生日期输入框，任何设备直接点选。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.3`。
+
+## 2.8.2
+
+### 修复 / Fixed
+
+- 修复 Zeabur 等跨域部署在 Streamable HTTP + 静态 Token 鉴权下无法连接 `/mcp`：浏览器的 `OPTIONS /mcp` 预检现在显式跳过 MCP 鉴权，CORS 中间件调整到鉴权外层，预检不再返回无 CORS 响应头的 401；鉴权失败响应也会携带正确的 CORS 响应头，Polaris 网页版和桌面版可正常发起后续带 Token 请求。
+
+### 维护 / Maintenance
+
+- 完成 2.7.8 启动、跨越 2.7.8—2.7.10 三个正式版本的首批 `src/` 扁平模块兼容观察期：经生产引用、测试、活动文档与部署入口审计后，移除 memory/plan/provider/public-origin/scoring、storage/deployment、ledger/projection 共 16 个顶层兼容壳；仓库测试全部切换到 `ombrebrain.*` canonical package，避免内部代码继续延长旧路径生命周期。
+- 修正内部资料忽略边界：`docs/superpowers/`、代码健康审计、内部 TODO 与旧版发布草稿不再受 Git 跟踪，并补入 `.gitignore`；运行时覆盖矩阵不再发布内部计划文件路径。
+
+### 测试 / Tests
+
+- 新增鉴权中间件预检放行与完整 Streamable HTTP 中间件栈回归，覆盖静态 Token 模式下 `OPTIONS /mcp` 返回 200、允许 `POST` 及 `Authorization`/`Content-Type` 请求头。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.2`。
+
+## 2.8.0
+
+### 修复 / Fixed
+
+- 保留 `hold` 与 `grow(items=...)` 的自动合并能力，同时在相似候选之后增加保守的“同一具体事件”判定；仅主题、人物或情绪相似，日期、场景或关键动作不同的独立事件不再串入旧桶，完全相同正文继续保持幂等。
+- 修复 `breath_advanced(catalog=True)` 忽略 `tags` 与 `max_results`：目录模式现在执行 tags AND 过滤并遵守返回上限，仍保持 0 LLM、只读元数据。
+- `breath_search` 与 `breath_advanced` 新增 `date_from/date_to` 创建日期过滤，支持 `YYYY-MM-DD` 与 ISO 8601；自由联想也受同一日期范围约束，避免按日期检索时漂出范围外旧桶。
+- 为语义检索补充不记录查询原文的诊断日志，包含查询哈希、向量候选与得分、embedding 引擎和耐久 outbox 状态，便于区分索引未更新、服务不可用和排序结果问题。
+- OAuth 授权页增加提交中状态、重复提交保护、30 秒超时提示与诊断编号；服务端按同一编号记录提交、密码失败和跳转阶段，便于定位授权页面卡住。
+
+### 行为说明 / Behavior
+
+- 保留检索命中不足时浮现 3–5 条低权重旧记忆的自由联想设计，并以“非检索命中”独立分区明确标记。
+- 保留核心准则无条件注入设计；传入 tags 时会明确说明 tags 只过滤普通浮现记忆。
+
+### 部署 / Deployment
+
+- 新建并验证 Zeabur 一键部署模板 `WB5ZKE`，README 部署按钮已指向新模板，同时保留 Deploy from GitHub 备用流程。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与热更新优先读取的 `src/VERSION` 同步更新为 `2.8.0`。
+
 ## 2.7.9
 
 ### 修复 / Fixed
