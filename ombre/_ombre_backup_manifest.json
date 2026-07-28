@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 41,
+  "file_count": 42,
   "files": [
     {
       "bytes": 784,
@@ -148,6 +148,11 @@
       "sha256": "8b4e846156b9da02da49487e9daa86cb3bd728013a10b439fa8bddf00a59ac5e"
     },
     {
+      "bytes": 608,
+      "path": "letters/history/2026-07-27 16-45-56 user_2026-07-27_8c65eab8bc80.md",
+      "sha256": "62ffa8c4b229cc9fa509c3a7c8718cf365b5a1e8eff256375d1f9ed35444e086"
+    },
+    {
       "bytes": 662,
       "path": "permanent/恋爱/2026-07-14 11-37-30 真实与控制的平衡_01f0d3c45df3.md",
       "sha256": "b236cf3da449805a1e21522bb997e09ef255c19af8ea4bfc9bcd6475795e61c2"
@@ -198,20 +203,20 @@
       "sha256": "10c026b33b2baa65bbbb9ae22d87ee6889a6549986f6cba7333d48c533f9ee2a"
     },
     {
-      "bytes": 762,
-      "path": "plans/active/2026-07-17 17-10-28_1cedbc1ee588.md",
-      "sha256": "1874c25dee4e7b5c401e436ecb7e13fce4b4efc156f4ccde3a097a9505f08d94"
-    },
-    {
       "bytes": 1441,
       "path": "plans/active/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "d365a9a38054e342cae90ea24f0e88712154bef7e3ecdafdedf819eff364d1a7"
+    },
+    {
+      "bytes": 839,
+      "path": "plans/resolved/2026-07-17 17-10-28_1cedbc1ee588.md",
+      "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     }
   ],
-  "generated_at": "2026-07-27T13:45:48+00:00",
+  "generated_at": "2026-07-28T13:47:42+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
-  "total_bytes": 34374
+  "total_bytes": 35059
 }
