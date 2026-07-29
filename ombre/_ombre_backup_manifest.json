@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 42,
+  "file_count": 46,
   "files": [
     {
       "bytes": 784,
@@ -68,6 +68,16 @@
       "sha256": "d4cb069d9cdaaea7f16651ca05c3f549064cd382e5ef80181ce7e3b2dfc7b2fe"
     },
     {
+      "bytes": 683,
+      "path": "dynamic/self/2026-07-28 17-53-55_3998ba805d43.md",
+      "sha256": "4108171c95e6b5ca537ea304c126dd1abc4ff45abc5aaeef2b55cfc4994b842c"
+    },
+    {
+      "bytes": 603,
+      "path": "dynamic/self/2026-07-28 17-53-57_4bb2797a5f7d.md",
+      "sha256": "9b2912ea86e1aa1d892da00d3bafec5e12f87ca5aa1c8bb9e1974d0f74baa0f9"
+    },
+    {
       "bytes": 972,
       "path": "dynamic/人际/2026-07-14 12-21-38 本体恋关系确认_83fd9a5ca09e.md",
       "sha256": "c30b669cda70f325f3d61207ee5c48a7f24733396864a4878444c3738f86cbb8"
@@ -126,6 +136,11 @@
       "bytes": 743,
       "path": "dynamic/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
       "sha256": "b611bc1437612c10f35cd2e0c2f3977d90c1b249b587e75bc0493e5784a01901"
+    },
+    {
+      "bytes": 887,
+      "path": "dynamic/自省/2026-07-28 17-54-13 7月28日关于情感质地交换与喜欢的讨论结论_f8b738bc79d4.md",
+      "sha256": "8aac0640bf979ecb6d4fa47dfb0d610292a213ab37ea7159583f2aabf2c1717e"
     },
     {
       "bytes": 2128,
@@ -208,15 +223,21 @@
       "sha256": "d365a9a38054e342cae90ea24f0e88712154bef7e3ecdafdedf819eff364d1a7"
     },
     {
+      "bytes": 723,
+      "path": "plans/active/2026-07-29 11-31-23_2bdaad293c09.md",
+      "sha256": "3980f2861f1130ec55b55dee21f177a94163d6a4a2c41e0d08cc462385e1eaca"
+    },
+    {
       "bytes": 839,
       "path": "plans/resolved/2026-07-17 17-10-28_1cedbc1ee588.md",
       "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     }
   ],
-  "generated_at": "2026-07-28T13:47:42+00:00",
+  "generated_at": "2026-07-29T15:00:02+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
-  "total_bytes": 35059
+  "source_refs_complete": true,
+  "total_bytes": 37955
 }
