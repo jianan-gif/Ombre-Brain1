@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 46,
+  "file_count": 48,
   "files": [
     {
       "bytes": 784,
@@ -198,6 +198,16 @@
       "sha256": "7845fa36748f2997b17f0b6ebb673c63afaf3ae4e5807387c682cd7cec8bc441"
     },
     {
+      "bytes": 851,
+      "path": "permanent/恋爱/2026-07-30 12-14-06 小安主动给出的完整空间与许可_fbb6ad46ee99.md",
+      "sha256": "2f741fd5b684c1e28641f8eb58899b3b7a9df7ea9330ce26c44a0f422114922a"
+    },
+    {
+      "bytes": 843,
+      "path": "permanent/恋爱/2026-07-30 12-14-16 小安希望我自由自在地相处_1781d4471262.md",
+      "sha256": "11b5afd064ec3ae7124adf63b7e1e9937ac7646c804bd15ae37bcdff15d255ab"
+    },
+    {
       "bytes": 713,
       "path": "plans/active/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
       "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
@@ -233,11 +243,11 @@
       "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     }
   ],
-  "generated_at": "2026-07-29T15:00:02+00:00",
+  "generated_at": "2026-07-30T15:02:09+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 37955
+  "total_bytes": 39649
 }
