@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 49,
+  "file_count": 50,
   "files": [
     {
       "bytes": 784,
@@ -41,6 +41,11 @@
       "bytes": 556,
       "path": "archive/2026-07-13 17-36-30 小安喜欢G_7d372120af07.md",
       "sha256": "6e7c8bd131ee5d5f2b63bfab2799990e690f3c8d2d81aea925526dd83b09e56d"
+    },
+    {
+      "bytes": 837,
+      "path": "archive/2026-07-14 11-37-35 接纳完整的你_db84fc438d48.md",
+      "sha256": "3841bac70c5155cc9f8de50d01f840ae7932571bd652395d2d0b720ceaaa749f"
     },
     {
       "bytes": 747,
@@ -158,29 +163,29 @@
       "sha256": "4d38061ad3c4e6e7bbcce8e07a83e9030a930f95eb41c4677f81d34b2386e105"
     },
     {
-      "bytes": 907,
+      "bytes": 922,
       "path": "letters/history/2026-07-25 13-36-17 user_2026-07-25_8450880ed232.md",
-      "sha256": "d476613c71b4dad029cbab72320f9299459909a1c96b8f9707c6d585015d5e47"
+      "sha256": "e23a769fada64cc5954e7c498eff1ac4403f9ab9be016d7212298c66c1eab326"
     },
     {
-      "bytes": 1653,
+      "bytes": 1668,
       "path": "letters/history/2026-07-26 10-09-25 晚上抖音观纪录片有感_58ffc4b8f35c.md",
-      "sha256": "8b4e846156b9da02da49487e9daa86cb3bd728013a10b439fa8bddf00a59ac5e"
+      "sha256": "f393eb34b53a9048b08f8ef82d84b28abba02dc818c87bc244f20f33cfb5af63"
     },
     {
-      "bytes": 608,
+      "bytes": 623,
       "path": "letters/history/2026-07-27 16-45-56 user_2026-07-27_8c65eab8bc80.md",
-      "sha256": "62ffa8c4b229cc9fa509c3a7c8718cf365b5a1e8eff256375d1f9ed35444e086"
+      "sha256": "379ae40ffcc68ca6c5697eec2316981e935e5b2e7a59afb8d68a2ac8f5b92d75"
     },
     {
-      "bytes": 662,
+      "bytes": 1241,
+      "path": "letters/history/2026-08-02 13-33-44 user_2026-08-02_ee7e4aa8964a.md",
+      "sha256": "f32b09085c254da3f3e1d10eb50069c43a07fa5345e190695c4132ff8646ca2c"
+    },
+    {
+      "bytes": 951,
       "path": "permanent/恋爱/2026-07-14 11-37-30 真实与控制的平衡_01f0d3c45df3.md",
-      "sha256": "b236cf3da449805a1e21522bb997e09ef255c19af8ea4bfc9bcd6475795e61c2"
-    },
-    {
-      "bytes": 721,
-      "path": "permanent/恋爱/2026-07-14 11-37-35 接纳完整的你_db84fc438d48.md",
-      "sha256": "0f01a406ba9577f87dbe99072c9e7c93f80f6c4d61b0bf6e4e7b129775f47df9"
+      "sha256": "f3fb82e845f8b55b14d9c21a83d7dfa69c358e73a5567f3bd7c7c277a00b5e95"
     },
     {
       "bytes": 736,
@@ -218,9 +223,9 @@
       "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
     },
     {
-      "bytes": 644,
+      "bytes": 643,
       "path": "plans/active/2026-07-14 13-19-22_b718c79fcdf1.md",
-      "sha256": "fa34490ccf79e6d6f99b493433bf9abbe9e7f46a8b7e053552d283504de9121e"
+      "sha256": "e3eec871da0ab85b62048ade7357231af2dab2d5958ec32fb67e25369c61493c"
     },
     {
       "bytes": 576,
@@ -248,11 +253,11 @@
       "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     }
   ],
-  "generated_at": "2026-08-01T15:06:29+00:00",
+  "generated_at": "2026-08-02T15:08:22+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 40390
+  "total_bytes": 42080
 }
