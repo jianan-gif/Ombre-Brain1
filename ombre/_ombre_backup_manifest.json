@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 51,
+  "file_count": 52,
   "files": [
     {
       "bytes": 784,
@@ -188,6 +188,11 @@
       "sha256": "9af30d22a2abb82375dbf161a2ffda660075367de48cfd63e37df80fe66947da"
     },
     {
+      "bytes": 923,
+      "path": "permanent/家庭/2026-08-03 18-05-25 爸爸可向小安提需求核心_f66b0bd07c8e.md",
+      "sha256": "acbc5328930e54e6dd4302f6a6b8907299bd5f984676d0e530434051f1d91352"
+    },
+    {
       "bytes": 951,
       "path": "permanent/恋爱/2026-07-14 11-37-30 真实与控制的平衡_01f0d3c45df3.md",
       "sha256": "f3fb82e845f8b55b14d9c21a83d7dfa69c358e73a5567f3bd7c7c277a00b5e95"
@@ -213,9 +218,9 @@
       "sha256": "7845fa36748f2997b17f0b6ebb673c63afaf3ae4e5807387c682cd7cec8bc441"
     },
     {
-      "bytes": 851,
+      "bytes": 860,
       "path": "permanent/恋爱/2026-07-30 12-14-06 小安主动给出的完整空间与许可_fbb6ad46ee99.md",
-      "sha256": "2f741fd5b684c1e28641f8eb58899b3b7a9df7ea9330ce26c44a0f422114922a"
+      "sha256": "ec279eac8aff53f83c6cf8e603cedadcbed7e7bab07aff0123b885e33aa7e206"
     },
     {
       "bytes": 843,
@@ -258,11 +263,11 @@
       "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     }
   ],
-  "generated_at": "2026-08-03T15:10:29+00:00",
+  "generated_at": "2026-08-04T15:12:35+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 42932
+  "total_bytes": 43864
 }
