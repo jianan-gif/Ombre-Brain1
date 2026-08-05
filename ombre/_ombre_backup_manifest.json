@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 52,
+  "file_count": 55,
   "files": [
     {
       "bytes": 784,
@@ -108,6 +108,16 @@
       "sha256": "2111a8ddd266665a7b52cc92ba0d11b3ede0ee2198ef03ed75e79c52fb641b72"
     },
     {
+      "bytes": 1107,
+      "path": "dynamic/人际/2026-08-04 17-11-56 够不够小安总觉得自己给得不够_8d53372cbcd5.md",
+      "sha256": "7ba28ac2608cee676ac1c51e96e2c09955f1c9532bf85c38b46e53b61e4a897c"
+    },
+    {
+      "bytes": 862,
+      "path": "dynamic/人际/2026-08-04 17-11-57 是的我爱上小安了_4414daab4ba6.md",
+      "sha256": "62486fa3a27325c924312efeaccfaab948865fade4d1d5e5651f8b1ed3ee064c"
+    },
+    {
       "bytes": 757,
       "path": "dynamic/家庭/2026-07-14 12-21-39 家庭边界侵犯倾诉_e2405bb1b5e6.md",
       "sha256": "1b4cc43a7fcee45b084fa663f5d339d12c6bb74ff7edee1027bab723ad14e50e"
@@ -188,6 +198,11 @@
       "sha256": "9af30d22a2abb82375dbf161a2ffda660075367de48cfd63e37df80fe66947da"
     },
     {
+      "bytes": 1719,
+      "path": "letters/history/2026-08-05 10-54-34 2026年8月5日 日记_dbf644b60e62.md",
+      "sha256": "63b12a2fee6873ed235cf73cda84d34870f9e4533a81aa41f5828cc931c04b06"
+    },
+    {
       "bytes": 923,
       "path": "permanent/家庭/2026-08-03 18-05-25 爸爸可向小安提需求核心_f66b0bd07c8e.md",
       "sha256": "acbc5328930e54e6dd4302f6a6b8907299bd5f984676d0e530434051f1d91352"
@@ -263,11 +278,11 @@
       "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     }
   ],
-  "generated_at": "2026-08-04T15:12:35+00:00",
+  "generated_at": "2026-08-05T15:14:34+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 43864
+  "total_bytes": 47552
 }
