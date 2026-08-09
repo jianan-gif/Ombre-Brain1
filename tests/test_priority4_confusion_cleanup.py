@@ -92,7 +92,8 @@ async def test_grow_shortpath_explains_hold_style_single_memory(monkeypatch):
             pass
 
     class FakeDehydrator:
-        async def analyze(self, _content):
+        async def analyze(self, _content, *, include_why=False):
+            assert include_why is True
             return {
                 "importance": 5,
                 "tags": ["短句"],
@@ -100,9 +101,13 @@ async def test_grow_shortpath_explains_hold_style_single_memory(monkeypatch):
                 "valence": 0.5,
                 "arousal": 0.3,
                 "suggested_name": "短内容",
+                "why_remembered": "这条会影响我后续的判断。",
             }
 
-    async def fake_merge_or_create(**_kwargs):
+    captured = {}
+
+    async def fake_merge_or_create(**kwargs):
+        captured.update(kwargs)
         return "bucket-1", False, ""
 
     async def fake_background(*_args, **_kwargs):
@@ -122,6 +127,10 @@ async def test_grow_shortpath_explains_hold_style_single_memory(monkeypatch):
     result = await shortpath.grow_shortpath("短句")
 
     assert "短内容已按 hold 路径保存为单条记忆" in result
+    assert captured.get("why_remembered", "") == ""
+    assert captured["merge_why_remembered"] == (
+        "这条会影响我后续的判断。"
+    )
 
 
 @pytest.mark.asyncio
@@ -513,7 +522,7 @@ async def test_dashboard_rechecks_network_safety_inside_atomic_config_turn(
 
 
 @pytest.mark.asyncio
-async def test_dashboard_clears_stale_guard_status_after_auth_is_repaired(
+async def test_dashboard_reports_restart_after_open_runtime_is_repaired(
     monkeypatch,
 ):
     from ombrebrain.security.deployment_profile import enforce_mcp_network_guard
@@ -553,15 +562,15 @@ async def test_dashboard_clears_stale_guard_status_after_auth_is_repaired(
 
     assert repaired.status_code == 200
     assert repaired_payload["mcp_require_auth"] is True
-    assert repaired_payload["mcp_require_auth_effective"] is True
+    assert repaired_payload["mcp_require_auth_effective"] is False
     assert repaired_payload["mcp_network_security"]["guard_active"] is False
-    assert repaired_payload["restart_required"] is False
+    assert repaired_payload["restart_required"] is True
     assert persisted["mcp_require_auth"] is True
     assert refreshed.status_code == 200
     assert refreshed_payload["mcp_require_auth"] is True
-    assert refreshed_payload["mcp_require_auth_effective"] is True
+    assert refreshed_payload["mcp_require_auth_effective"] is False
     assert refreshed_payload["mcp_network_security"]["guard_active"] is False
-    assert refreshed_payload["restart_required"] is False
+    assert refreshed_payload["restart_required"] is True
 
 
 @pytest.mark.asyncio
@@ -601,7 +610,7 @@ async def test_dashboard_explicit_insecure_override_is_auditable(monkeypatch):
 
 
 @pytest.mark.asyncio
-async def test_dashboard_does_not_claim_platform_managed_guard_is_repaired(
+async def test_dashboard_reports_platform_managed_open_runtime_as_effective(
     monkeypatch,
 ):
     from ombrebrain.security.deployment_profile import enforce_mcp_network_guard
@@ -645,14 +654,15 @@ async def test_dashboard_does_not_claim_platform_managed_guard_is_repaired(
     assert response.status_code == 200
     assert persisted["mcp_require_auth"] is True
     assert payload["mcp_require_auth"] is True
-    assert payload["mcp_require_auth_effective"] is True
-    assert payload["mcp_network_security"]["guard_active"] is True
+    assert payload["mcp_require_auth_effective"] is False
+    assert payload["mcp_network_security"]["guard_active"] is False
     assert payload["restart_required"] is False
     assert payload["warnings"]
-    assert "安全门禁继续强制鉴权" in payload["message"]
+    assert "仍由平台环境变量控制" in payload["message"]
     assert refreshed.status_code == 200
     assert refreshed_payload["mcp_require_auth"] is True
-    assert refreshed_payload["mcp_network_security"]["guard_active"] is True
+    assert refreshed_payload["mcp_require_auth_effective"] is False
+    assert refreshed_payload["mcp_network_security"]["guard_active"] is False
     assert refreshed_payload["restart_required"] is False
 
 

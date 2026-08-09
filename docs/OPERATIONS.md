@@ -14,7 +14,7 @@
 
 Docker/Zeabur 的持久卷统一挂载 `/app/buckets`，配置路径为 `/app/buckets/config.yaml`。Zeabur 从 GitHub 部署时只需添加模型 Key、挂载该卷、绑定 HTTPS 域名，再从向导选择“公网安全模式”。不要在平台中长期保留 `OMBRE_MCP_REQUIRE_AUTH` 或 `OMBRE_TRANSPORT`，除非明确希望平台覆盖 Dashboard。
 
-网络 MCP 关闭鉴权时，OB 只认可可确认的本机回环边界。裸机由 `OMBRE_BIND_HOST` 表示进程监听地址；Docker 由 Compose 的宿主端口绑定决定，三个官方模板会把 `OMBRE_BIND_ADDRESS` 同步传入容器。非回环地址、局域网/NAS 或旧 Docker 模板未声明宿主边界时，启动门禁会只在内存中强制开启鉴权，不改写 `config.yaml`、不阻止 Dashboard 启动。此时 MCP 客户端可能从免鉴权连接变为 `401`；应更新 Compose 并以 `up -d --force-recreate` 重建容器，或改用 OAuth/静态 Token。只有已有独立可信鉴权边界的高级部署才可设置精确值 `OMBRE_ALLOW_INSECURE_MCP=true`；内置 Tunnel 默认阻断免鉴权，显式高风险豁免除外；外部独立隧道则无法由 OB 自动探测。
+网络 MCP 关闭鉴权时，裸机由 `OMBRE_BIND_HOST` 表示进程监听地址，Docker 由 Compose 的宿主端口绑定决定，官方模板会把 `OMBRE_BIND_ADDRESS` 同步传入容器。OB 会诊断非回环、局域网/NAS 和未知 Docker 边界的匿名访问风险，但 2.11.1 起不再把明确的 `mcp_require_auth: false` 在内存中改回鉴权。Dashboard / 向导保存非回环免鉴权组合和内置 Tunnel 启动仍要求精确设置 `OMBRE_ALLOW_INSECURE_MCP=true`；直接由配置文件或平台环境变量关闭鉴权则由部署者自行保证外层边界。外部独立隧道无法由 OB 自动探测，应优先使用 OAuth 或静态 Token。
 
 `OMBRE_BIND_ADDRESS=127.0.0.1` 证明的是官方 Compose 的**宿主端口映射**不向局域网开放，不等于隔离同一 Docker 网络中的其他容器。免鉴权部署必须同时保证该容器网络没有不可信成员；多实例、自定义网络或无法确认的编排应使用 OAuth/静态 Token。
 
@@ -90,9 +90,10 @@ python tools/check_buckets.py --json
 | ZIP 上传被拒绝 | 本地 vault 未写入 | 按错误修复损坏、路径穿越、重复项或清单不一致，重新导出 |
 | SQLite quick_check 失败 | Markdown 真源通常仍在 | 先备份 Markdown，移走损坏的派生库，再重建向量；不要删除 Markdown |
 | outbox 长时间不下降 | 记忆正文仍安全 | 查看熔断状态、最近错误、Key/模型/维度和 provider 连通性 |
+| nginx 下输入正确 Dashboard 密码却提示密码错误 | v2.10.1 及更早版本会把代理返回的 HTML、空响应或网关错误统一回退为“密码错误” | 升级到 2.10.2+ 后按页面显示的真实类型处理；同时检查 `/auth/login` 状态码、下方完整 nginx 转发头和 `OMBRE_TRUSTED_PROXY_CIDRS`。若返回 200 但会话未建立，核对 `X-Forwarded-Proto` 与 `Set-Cookie` |
 | 编辑记忆、热更新或重启提示 `Cross-origin request rejected` | 写请求被来源防护拒绝，原数据未改动；这不是 CORS 缺失 | 优先手动升级到 2.7.1+；nginx 必须保留公网 authority，传入 `X-Forwarded-Proto: https`，并让应用精确信任最后一跳代理 CIDR。不要添加 CORS 头或改写浏览器 `Origin` |
 | Polaris 报 `Failed to fetch`，`/health` 为 200，但 `OPTIONS /mcp` 为 401 且无 CORS 头 | 2.8.1 及更早版本中 CORS 位于 MCP 鉴权内层，静态 Token 模式错误拦截了不携带 Token 的浏览器预检 | 升级到 2.8.2+ 并重建/重启服务；确认预检返回 200，且响应包含 `Access-Control-Allow-Origin`、允许 `POST` 和客户端使用的 Token 请求头 |
-| 升级后免鉴权 MCP 变为 `401`，日志显示“MCP 安全门禁已启用” | 服务监听非回环，或旧 Docker 模板没有向容器声明宿主绑定；门禁已在内存中恢复鉴权 | 局域网/NAS 改用静态 Token；仅同机使用则显式绑定回环。Docker 更新 Compose 并重建容器以传入 `OMBRE_BIND_ADDRESS`，记忆卷与 Dashboard 不受影响 |
+| `mcp_require_auth: false` 但 `/mcp` 仍返回 `401`，CC 云 session 报 `MCP error 32003` | 2.8.12–2.11.0 的启动门禁在非回环/未知云边界中覆盖了关闭鉴权配置 | 升级到 2.11.1+ 并重启；确认 Dashboard 的“当前生效 MCP 鉴权”为关闭。公网匿名 MCP 风险很高，条件允许时仍优先使用 OAuth 或静态 Token |
 
 ### nginx 反代与 v2.7.0 脱困
 
@@ -176,7 +177,7 @@ docker compose -f deploy/docker-compose.yml up -d --build --force-recreate
 
 `entrypoint.sh` 本身来自镜像，不在 Dashboard 热更新覆盖范围内。升级到带有新播种逻辑的版本时必须先拉取/重建镜像一次，不能只点击 Dashboard 更新。
 
-Dashboard 热更新会限制下载包、成员数、单文件大小、总解压量和压缩率。建立 `_prev` 回滚点失败时不会继续覆盖；逐文件写入采用原子替换。依赖变化以正式发布使用的 `requirements.lock.txt` 为准，旧更新包缺少锁文件时才回退 `requirements.txt`；真实依赖变化且未显式开启 `OMBRE_UPDATE_ALLOW_PIP=1` 时，热更新会回滚并要求重建镜像，避免“代码更新成功但重启后缺包”。
+Dashboard 热更新会限制下载包、成员数、单文件大小、总解压量和压缩率。建立 `_prev` 回滚点失败时不会继续覆盖；逐文件写入采用原子替换。依赖变化以正式发布使用的 `requirements.lock.txt` 为准，旧更新包缺少锁文件时才回退 `requirements.txt`；真实依赖变化且未显式开启 `OMBRE_UPDATE_ALLOW_PIP=1`（或 Dashboard 「热更新」面板里的等效开关）时，热更新会在写入任何文件前直接拒绝并要求重建镜像，避免”代码更新成功但重启后缺包”——2.16.2 起这道检查提前到下载/解析完依赖清单之后、真正覆盖 src/frontend 之前，不会再出现”先备份写文件、再整体回滚”的多余一轮。
 
 已经停留在 2.8.4、且出现“新版依赖清单有变化”回滚提示的实例，可以直接重新点击官方 `main` 热更新。官方 GitHub 归档通过 `.gitattributes` 排除仅供开发者使用的宽松 `requirements.txt`，同时保留带 hash 的 `requirements.lock.txt`；旧更新器会跳过错误的源清单比较，新更新器接管后则继续按发布锁判断。自建镜像/镜像站若重新打包了根级 `requirements.txt`，仍应重建镜像，或仅在明确理解风险时临时设置 `OMBRE_UPDATE_ALLOW_PIP=1`。
 
