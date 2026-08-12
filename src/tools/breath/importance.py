@@ -25,6 +25,7 @@ from .. import _runtime as rt
 from .._common import is_importance_audit_candidate
 from ..plan.core import is_letter_bucket
 from ._verbatim import render_stored_bucket
+from errors import safe_error_detail
 
 _BUDGET_NOTICE = "token 预算不足：下一条重要记忆未被截断或摘要，请提高 max_tokens 后重试。"
 
@@ -115,7 +116,7 @@ async def surface_by_importance(importance_min: int, max_tokens: int, tag_filter
     try:
         all_buckets = await rt.bucket_mgr.list_all(include_archive=False)
     except Exception as e:
-        return f"记忆系统暂时无法访问: {e}"
+        return f"记忆系统暂时无法访问: {safe_error_detail(e)}"
     canonical_buckets = _deduplicate_buckets(all_buckets)
     filtered = [
         b for b in canonical_buckets
@@ -128,6 +129,20 @@ async def surface_by_importance(importance_min: int, max_tokens: int, tag_filter
     filtered = _select_importance_buckets(filtered, importance_min, limit=20)
     if not filtered:
         return f"没有重要度 >= {importance_min} 的记忆。"
+
+    try:
+        footprint_snapshot = rt.bucket_mgr.footprint_snapshot()
+    except Exception as exc:
+        rt.logger.warning(f"Footprint snapshot unavailable / 足迹读取失败: {exc}")
+        footprint_snapshot = None
+
+    def _footprint(bucket: dict) -> str:
+        if footprint_snapshot is None:
+            return "👣 Footprint：暂时无法读取"
+        return footprint_snapshot.summary(
+            str(bucket.get("id") or ""), bucket.get("metadata", {})
+        )
+
     results = []
     token_used = 0
     budget_blocked = False
@@ -137,6 +152,7 @@ async def surface_by_importance(importance_min: int, max_tokens: int, tag_filter
             rendered, entry_tokens = render_stored_bucket(
                 b,
                 f"[importance:{imp}] [bucket_id:{b['id']}]",
+                _footprint(b),
             )
             if token_used + entry_tokens > max_tokens:
                 budget_blocked = True

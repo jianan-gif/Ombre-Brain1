@@ -24,15 +24,15 @@ import asyncio
 import uuid
 
 try:
-    from errors import PublicToolError
+    from errors import llm_step_failed_error
 except ImportError:  # pragma: no cover - 包内导入兜底
-    from ...errors import PublicToolError  # type: ignore
+    from ...errors import llm_step_failed_error  # type: ignore
 
 from .. import _runtime as rt
 from .._common import merge_or_create, check_duplicate_for, check_plan_resolution
 
 
-async def grow_shortpath(content: str) -> str:
+async def grow_shortpath(content: str, test_data: bool = False) -> str:
     rt.logger.info(f"grow short-content fast path: {len(content.strip())} chars")
     try:
         analysis = await rt.dehydrator.analyze(content, include_why=True)
@@ -41,11 +41,17 @@ async def grow_shortpath(content: str) -> str:
             "grow short analysis failed: err_type=%s detail=hidden",
             type(e).__name__,
         )
-        raise PublicToolError(
-            "API key 未配置或调用失败，打标无法完成，桶未创建。"
-            "请检查 OMBRE_COMPRESS_API_KEY。"
+        raise llm_step_failed_error(
+            "打标",
+            api_available=getattr(rt.dehydrator, "api_available", True),
         ) from e
     importance = analysis.get("importance", 5) if isinstance(analysis.get("importance"), int) else 5
+    raw_why_remembered = analysis.get("why_remembered")
+    why_remembered = (
+        raw_why_remembered.strip()
+        if isinstance(raw_why_remembered, str)
+        else ""
+    )
     # iter 2.0：短路径也是一次 grow 调用 → 仍生成 batch_id，便于 dashboard 聚合，
     # 即使 batch 里只有一条记录也保留字段，schema 一致。
     batch_id = f"g_{uuid.uuid4().hex[:12]}"
@@ -58,9 +64,11 @@ async def grow_shortpath(content: str) -> str:
         arousal=analysis.get("arousal", 0.3),
         name=analysis.get("suggested_name", ""),
         raw_merge=True,
-        merge_why_remembered=analysis.get("why_remembered") or "",
+        why_remembered=why_remembered,
+        merge_why_remembered=why_remembered,
         source_tool="grow",
         grow_batch_id=batch_id,
+        test_data=test_data,
     )
     action = "合并" if is_merged else "新建"
     asyncio.create_task(check_plan_resolution(content, source_bucket_id=result_name))

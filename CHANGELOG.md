@@ -2,6 +2,106 @@
 
 本项目版本号见根目录 `VERSION` 文件，Docker 镜像 tag 与之对应（`p0luz/ombre-brain:<VERSION>`）。
 
+## 2.17.5
+
+### 修复 / Fixed
+
+- 修复 I 候选在 `dream` 结果中已经浮现、见证数却仍停在 `0/3`：此前只统计
+  末尾专用候选段，候选若先在近期记忆段出现、而专用段被总 token 预算挤掉，
+  就会漏计。现在统一追踪最终输出中实际渲染的候选，无论它出现在近期记忆、
+  候选主块还是另一候选的碰撞材料，当天都记一次见证；完全未渲染仍不计次。
+- 候选状态或见证落盘返回失败时不再误报成功；历史 `i_dream_dates` 会按日期
+  去重后再判断 `promote` 的 3 次门槛，确保必须来自 3 个不同日期。
+
+### 测试 / Tests
+
+- 新增预算截断精确回归、碰撞材料见证、真实 Markdown 重载持久化、写入失败与
+  重复日期门槛测试，并补 MCP 端到端 `I → dream → I(read)` 见证链路。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与 `src/VERSION` 同步更新为 `2.17.5`。
+
+## 2.17.4
+
+### 修复 / Fixed
+
+- 修正 2.17.3 引入的反向误导：`llm_step_failed_error()` 在 `api_available=True`
+  分支里写了「key 配置正常」。但 `api_available` 只回答「配没配」，不回答「配得
+  对不对」——key 填错、过期或余额耗尽时它仍是 True，调用会以 401/402 失败，这时
+  那句话等于把原来的误导换了个方向。真机用无效 key 跑 `grow` 复现后改成并列列出
+  可能原因（供应商故障、模型返回为空、key 失效或余额不足），把判断交回给日志。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与 `src/VERSION` 同步更新为 `2.17.4`。
+
+## 2.17.3
+
+### 修复 / Fixed
+
+- `grow` 的两条路径（长文 digest、短内容打标）此前把所有失败都报成
+  「API key 未配置或调用失败，请检查 OMBRE_COMPRESS_API_KEY」。实际上这条路上
+  绝大多数失败与 key 无关——供应商 5xx、超时，或 dehydrator 抛的「API 日记整理
+  返回空结果」（模型返回解析后 0 条有效条目）都会撞上同一句话，把排查方向带偏：
+  key 明明是好的，失败前一秒调用还是 200。现在按 `dehydrator.api_available`
+  分岔，只有 API 确实没配好才提 `OMBRE_COMPRESS_API_KEY`，其余情况说明是调用
+  失败或返回为空，并引导去看 `server.log` 里的 `err_type`。
+- 工具层 9 处 `except Exception` 后直接把裸异常正文拼进返回值的位置，改走统一的
+  `errors.safe_error_detail()`：正文照给（保留排查线索），但先抹掉
+  `Bearer <token>`、`sk-` 开头的 key、`api_key=` / `token:` 这类键值对，并限长
+  200 字符。涉及 `i`、`plan`、`breath`、`anchor`、`grow` 五组工具。捕获自家校验器
+  `ValueError` 的那几处（`plan` 的 Letter 锁参数、`_common` 的 grow items 校验）
+  维持原样，那些是精心写给调用方的提示，不该被脱敏改写。
+
+### 变更 / Changed
+
+- 导入侧的 `_safe_import_error_detail()` 实现上移到 `errors.safe_error_detail()`，
+  原函数保留为薄封装以兼容既有调用与回归测试；脱敏正则只维护一份，避免两处漂移。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与 `src/VERSION` 同步更新为 `2.17.3`。
+
+## 2.17.2
+
+### 修复 / Fixed
+
+- 完整落实 Issue #85：`grow(content=...)` 的长文 digest 与短内容快速路径会在
+  首次新建时保存合法的逐条 `why_remembered`；后续合并仍只补旧空值，绝不覆盖
+  人工或历史理由，空值和非法模型输出也不会阻断正文入库。
+- 按 Issue #89 的冷参考定位，为 `pulse()` 与 `breath_advanced(catalog=True)`
+  中的 anchor 桶增加独立 `⚓ [anchor]` 显示标记；不新增读取工具，不改变默认
+  `breath` / `dream` 的排除规则，也不改变显式检索、衰减或存储行为。
+- 补充 Issue #84 的历史格式回归：直接验证 `letters/history/` 中的 v2.4.12
+  Letter 在通用扫描、无参数 `letter_read()` 与 Dashboard Letter API 三个入口
+  一致可见，并覆盖活跃缓存预热后的外部文件变更检测。
+- 加固热更新清单生成：`VERSION`、`src/` 或 `frontend/` 仍有未暂存改动时
+  直接拒绝生成，并让清单版本与文件哈希统一读取同一 Git index/HEAD 快照，
+  防止再次产生 `src/VERSION` SHA-256 与源码归档不一致的发布包。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与 `src/VERSION` 同步更新为 `2.17.2`。
+
+## 2.17.1
+
+### 修复 / Fixed
+
+- `letter_lock_update` 成功路径原样返回 JSON，与其余 15 个 MCP 工具的中文短句风格不一致；
+  `letter_write` 创建带锁 letter 时同样返回 JSON。两处改为统一的标签式中文文案，
+  失败路径的 "Letter not found" 也一并中文化。
+- `bucket_manager.set_anchor()` 的 `"bucket not found"`/`"update failed"` 是仅有的两处
+  英文字面量，被原样拼进 `anchor`/`release` 的中文提示句里，改为中文。
+- `grow` 一直没有 `test_data` 参数（`hold` 有），导致 `grow` 创建的桶无法被
+  `trace(hard_delete=True)` 清理，无法用于可回收的自动化测试数据。补齐参数并透传到
+  `merge_or_create`。
+- `dream` 输出结尾追加固定收束语。
+
+### 版本 / Version
+
+- 根目录 `VERSION` 与 `src/VERSION` 同步更新为 `2.17.1`。
+
 ## 2.16.9
 
 ### 修复 / Fixed
