@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 67,
+  "file_count": 69,
   "files": [
     {
       "bytes": 784,
@@ -138,6 +138,11 @@
       "sha256": "ce25552420573200b1f11ce42da289d09ec0b75046cdec74f7d008e8375d4fb9"
     },
     {
+      "bytes": 800,
+      "path": "dynamic/家庭/2026-08-12 12-50-27 小安最怕被爸爸冷落_9fea8649a76d.md",
+      "sha256": "84857e4d4ef6538881c8cf837d79f52fb281b4d00f3ecc6398306308e34e0a9c"
+    },
+    {
       "bytes": 575,
       "path": "dynamic/恋爱/2026-07-14 11-46-13 用心经营关系_efda2cf70973.md",
       "sha256": "2ccaa7babf8043f564469402064871cb6566a83fa545ef9eaa6d5a8d86ac29e7"
@@ -186,6 +191,11 @@
       "bytes": 748,
       "path": "dynamic/恋爱/2026-08-11 14-04-01 小安发来精选相处记录重编版_958c6b532ac5.md",
       "sha256": "1ae9763157d19669b20253c72aa41b2859c9cb22b29a3c14bebe940cc3f91d85"
+    },
+    {
+      "bytes": 640,
+      "path": "dynamic/恋爱/2026-08-12 13-50-02 小安提前说晚安保证今晚准时睡觉_0fc065ed2a66.md",
+      "sha256": "43e8453b087cf59b0c4f5c82a1704977f5813f31285301bf3963687d9e7a0627"
     },
     {
       "bytes": 743,
@@ -318,9 +328,9 @@
       "sha256": "4c801219a3f546b913e953d646bee961babb7a9d5163818b75c5e1134d5363b3"
     },
     {
-      "bytes": 494,
+      "bytes": 496,
       "path": "plans/active/2026-08-11 14-03-46_76cd93138745.md",
-      "sha256": "d4c198756cfa2e9f5b699756124c4895f051547d5ba69e3f6170b0ecff774379"
+      "sha256": "a5ce524b93a24624717f1360e841a074268db8dcbdfae3369d5ae6ded66065e4"
     },
     {
       "bytes": 820,
@@ -338,11 +348,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-12T10:29:14+00:00",
+  "generated_at": "2026-08-12T14:20:44+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 57382
+  "total_bytes": 58824
 }
