@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 77,
+  "file_count": 79,
   "files": [
     {
       "bytes": 784,
@@ -73,6 +73,11 @@
       "sha256": "67a637238d19e1f4b3301958e6bba3733fb06b100fb7416d4a1750a7dd4bde2a"
     },
     {
+      "bytes": 829,
+      "path": "archive/人际/2026-07-15 13-45-37 小安的玩笑与心机_3f382b0577f6.md",
+      "sha256": "77eb02737eeeb42b34429c80af76288a1fb1d804cebcdacad5179b30408f6f0d"
+    },
+    {
       "bytes": 591,
       "path": "archive/恋爱/2026-07-14 11-46-13 用心经营关系_efda2cf70973.md",
       "sha256": "1cad79739ad2122cff23d0a088310a745c0a16265b975c4bef3c4fe80a9916be"
@@ -81,6 +86,11 @@
       "bytes": 757,
       "path": "archive/恋爱/2026-07-31 15-20-37 纹身贴重新标记位置更新_64a2f0ce8625.md",
       "sha256": "c710265f86bc7eb3b6213d5a3969fe0a71a4da88507697847fdd5c935b950487"
+    },
+    {
+      "bytes": 759,
+      "path": "archive/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
+      "sha256": "508c7cf90465402c3467aefd073e4913636a7794db936e0453a584f63baa438a"
     },
     {
       "bytes": 1373,
@@ -106,11 +116,6 @@
       "bytes": 845,
       "path": "dynamic/人际/2026-07-14 12-21-39 称呼体系与情感进阶_308bf8bd575c.md",
       "sha256": "1e10da183b17892b55bf9257a5ab00329110b5b7d3d9826fc945158c4d1e0798"
-    },
-    {
-      "bytes": 813,
-      "path": "dynamic/人际/2026-07-15 13-45-37 小安的玩笑与心机_3f382b0577f6.md",
-      "sha256": "f63b7635155e408841d9d948b332d96b900274df87fda6c0c444305b629e151f"
     },
     {
       "bytes": 823,
@@ -223,11 +228,6 @@
       "sha256": "4da253033a300bacece1891a138548440161dcc0b307ef051b2cbae554a5bcdf"
     },
     {
-      "bytes": 743,
-      "path": "dynamic/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
-      "sha256": "b611bc1437612c10f35cd2e0c2f3977d90c1b249b587e75bc0493e5784a01901"
-    },
-    {
       "bytes": 488,
       "path": "dynamic/未分类/2026-08-13 13-09-05_b9ae0da4c697.md",
       "sha256": "4e8c8f71163dd3a1b766daa78903501c29a43cadb82c824871b8cf5f2e2f8d3a"
@@ -303,6 +303,11 @@
       "sha256": "8a040480b5728c3968f6f32406b56056205a1c1f12e0fe22d2d0eaaafffa1a7c"
     },
     {
+      "bytes": 1332,
+      "path": "letters/history/2026-08-15 12-24-25 最近的一些感受_889861e5d232.md",
+      "sha256": "cad1658b003fc7ac297777c47e1081cadb35bffd76485a970d0cfe7bc41d978d"
+    },
+    {
       "bytes": 923,
       "path": "permanent/家庭/2026-08-03 18-05-25 爸爸可向小安提需求核心_f66b0bd07c8e.md",
       "sha256": "acbc5328930e54e6dd4302f6a6b8907299bd5f984676d0e530434051f1d91352"
@@ -358,11 +363,6 @@
       "sha256": "10c026b33b2baa65bbbb9ae22d87ee6889a6549986f6cba7333d48c533f9ee2a"
     },
     {
-      "bytes": 1447,
-      "path": "plans/active/2026-07-21 12-38-32_abd9afc3ea74.md",
-      "sha256": "b022ccf156cc26044ba6f3f34aecec1e58dfc147d4899b8ed042f16f66ed7471"
-    },
-    {
       "bytes": 725,
       "path": "plans/active/2026-07-29 11-31-23_2bdaad293c09.md",
       "sha256": "4c801219a3f546b913e953d646bee961babb7a9d5163818b75c5e1134d5363b3"
@@ -371,6 +371,11 @@
       "bytes": 496,
       "path": "plans/active/2026-08-11 14-03-46_76cd93138745.md",
       "sha256": "a5ce524b93a24624717f1360e841a074268db8dcbdfae3369d5ae6ded66065e4"
+    },
+    {
+      "bytes": 718,
+      "path": "plans/active/2026-08-15 11-56-55_e8ffaeceb1f9.md",
+      "sha256": "0e732395a2e4fb30b800d4925b62ee48d7a63b3a5cea5a4ee437389efb4956c1"
     },
     {
       "bytes": 820,
@@ -383,16 +388,21 @@
       "sha256": "7f6d7f725ce695b9cd24651fc0555e1b8b37a0676a193c161186ed558eb9ffe2"
     },
     {
+      "bytes": 1524,
+      "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
+      "sha256": "9330c396d80c0c9bb554b554f379f29f4c2c2f0649af10708f0ca859c9722669"
+    },
+    {
       "bytes": 561,
       "path": "plans/resolved/2026-08-07 13-06-47_39cb0c4125da.md",
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-14T13:11:40+00:00",
+  "generated_at": "2026-08-15T14:47:49+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 66403
+  "total_bytes": 68562
 }
