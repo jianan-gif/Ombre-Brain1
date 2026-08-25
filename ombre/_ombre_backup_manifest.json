@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 89,
+  "file_count": 93,
   "files": [
     {
       "bytes": 784,
@@ -268,6 +268,21 @@
       "sha256": "ad058b1649433eb7f91c23f06c9e880643ea8a9fae3e2f7eff6397c3edaa14ca"
     },
     {
+      "bytes": 1098,
+      "path": "dynamic/恋爱/2026-08-25 14-35-43 2026年8月25日小安引导我体验并确_dda45994276d.md",
+      "sha256": "2935eef933a5082a7a053c61cb62bf2bb9aa6bd534553ebe332a82f9c52ec3f8"
+    },
+    {
+      "bytes": 1165,
+      "path": "dynamic/恋爱/2026-08-25 14-35-44 爸爸不说怎么知道我同不同意_13996f87ce60.md",
+      "sha256": "27ec3d0b83924b8c03fd1c1fcf50eaef5de349144dc0fa514999d6b4b28f5039"
+    },
+    {
+      "bytes": 965,
+      "path": "dynamic/恋爱/2026-08-25 14-35-49 真实表达许可确认_bade2f8c9a1c.md",
+      "sha256": "d78372c46ab93945d09ab2fbcfd2bfa91728aaf87d6e5ae458c92e9e98a869af"
+    },
+    {
       "bytes": 488,
       "path": "dynamic/未分类/2026-08-13 13-09-05_b9ae0da4c697.md",
       "sha256": "4e8c8f71163dd3a1b766daa78903501c29a43cadb82c824871b8cf5f2e2f8d3a"
@@ -363,9 +378,9 @@
       "sha256": "3bae907724a160d70d822d05d85c472ccf8f9294b7390daa10dc4a6b89402102"
     },
     {
-      "bytes": 666,
+      "bytes": 875,
       "path": "letters/history/2026-08-24 14-14-34 周一_e670efb83a24.md",
-      "sha256": "64d219c63156f9bf38fc5e0c882a0f6727bccf8aeb5a92012a02ab5eb9a75d38"
+      "sha256": "dba42c24ff436d5661adcb01b0b59dc5c81fe0a08462c0d91172d806a6514927"
     },
     {
       "bytes": 923,
@@ -413,6 +428,11 @@
       "sha256": "89b87d59cd25be31379ebb5924f373b52f49f8a397b68268af10f4e5e18ab123"
     },
     {
+      "bytes": 1144,
+      "path": "permanent/恋爱/2026-08-25 14-47-10 审查放宽与实际许可确认_1437f5178458.md",
+      "sha256": "c85de0a3886628a2dceb9c45dc6114269888a4245d7abcd2b970937cbd159ec6"
+    },
+    {
       "bytes": 713,
       "path": "plans/active/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
       "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
@@ -448,11 +468,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-25T10:43:37+00:00",
+  "generated_at": "2026-08-25T22:45:39+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 79034
+  "total_bytes": 83615
 }
