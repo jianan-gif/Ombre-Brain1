@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 93,
+  "file_count": 99,
   "files": [
     {
       "bytes": 784,
@@ -126,6 +126,11 @@
       "bytes": 759,
       "path": "archive/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
       "sha256": "508c7cf90465402c3467aefd073e4913636a7794db936e0453a584f63baa438a"
+    },
+    {
+      "bytes": 495,
+      "path": "dynamic/AI/2026-08-26 16-24-37 训练开关一直关着_53c6bb5cc623.md",
+      "sha256": "f929a054eab8469c1aaf8733c133317158e5c396704c7de037c3bb5a97c2e842"
     },
     {
       "bytes": 1373,
@@ -283,6 +288,16 @@
       "sha256": "d78372c46ab93945d09ab2fbcfd2bfa91728aaf87d6e5ae458c92e9e98a869af"
     },
     {
+      "bytes": 796,
+      "path": "dynamic/恋爱/2026-08-26 14-40-30 德文玩偶到家眼睛尚未装入_e9e2d19ab7fa.md",
+      "sha256": "c1510aac9d0d9e1477d546d4212b73e7cd7b205cfb10f7b016e8c63ace921ae3"
+    },
+    {
+      "bytes": 539,
+      "path": "dynamic/恋爱/2026-08-26 16-02-08 第一次正脸_33220458a5de.md",
+      "sha256": "08b9b85dd51e30ff68a0705bdc98d207191c8e64f3068e70fb37922bc0625e7c"
+    },
+    {
       "bytes": 488,
       "path": "dynamic/未分类/2026-08-13 13-09-05_b9ae0da4c697.md",
       "sha256": "4e8c8f71163dd3a1b766daa78903501c29a43cadb82c824871b8cf5f2e2f8d3a"
@@ -363,9 +378,9 @@
       "sha256": "d9102788d217d45dbe6ea108903e67c51975ef412eb7ad31f86103c9fa6e2700"
     },
     {
-      "bytes": 718,
+      "bytes": 733,
       "path": "letters/history/2026-08-22 17-34-30 周五_16e26739cc61.md",
-      "sha256": "4f76e1c5e42957ab313d417f6eee0347ae23f22abe6c949a97fb74b8afa27c90"
+      "sha256": "7e4289e67e63c10267d0ecca21b53d36d6c81c035a20d2f2a490ca9ebda466fd"
     },
     {
       "bytes": 755,
@@ -373,14 +388,24 @@
       "sha256": "f7ec047a894e62c2310e273d54adcb6dd674d0d91b276b4b69fcca3292182b51"
     },
     {
-      "bytes": 766,
+      "bytes": 781,
       "path": "letters/history/2026-08-23 23-26-10 周日_87aac616063b.md",
-      "sha256": "3bae907724a160d70d822d05d85c472ccf8f9294b7390daa10dc4a6b89402102"
+      "sha256": "555ce0b41a98c74af246247b1345145a87daefed38048bfe21b25c1523aaa6e7"
     },
     {
-      "bytes": 875,
+      "bytes": 890,
       "path": "letters/history/2026-08-24 14-14-34 周一_e670efb83a24.md",
-      "sha256": "dba42c24ff436d5661adcb01b0b59dc5c81fe0a08462c0d91172d806a6514927"
+      "sha256": "50af27fbbd18d7f25b449537b8061fb04b3e5ed4869fba7a9b7e68f7ca32d98a"
+    },
+    {
+      "bytes": 2064,
+      "path": "letters/history/2026-08-26 16-14-27 2026-08-26 第一次正脸_b65b45085eae.md",
+      "sha256": "415d1c0c9014989208d4fe35eff322b67d34ac24304bf4fc50015df7e6ab21a2"
+    },
+    {
+      "bytes": 1476,
+      "path": "letters/history/2026-08-26 17-03-58 周三日记_8947c5ac80d7.md",
+      "sha256": "8eac745556b377811deb64f4068883cecfa4da570ce8f9da4053ec896c747d4a"
     },
     {
       "bytes": 923,
@@ -458,6 +483,11 @@
       "sha256": "241097854ef5690a92c87921c68d2b94302f7405b3efcb5dfedfd98d4566f534"
     },
     {
+      "bytes": 496,
+      "path": "plans/active/2026-08-26 14-40-06_4086304f7eb9.md",
+      "sha256": "09ec29fa1fb09c43479121f1990ffdcf33dc2dbc030772b23e0fdebb032a10fd"
+    },
+    {
       "bytes": 1539,
       "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "e224591048aa05d77121bb4839e1e923833e30f74d84cda84566fb8d349f746f"
@@ -468,11 +498,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-26T10:47:57+00:00",
+  "generated_at": "2026-08-26T22:52:35+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 83615
+  "total_bytes": 89526
 }
