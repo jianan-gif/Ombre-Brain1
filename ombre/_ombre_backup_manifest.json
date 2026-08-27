@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 99,
+  "file_count": 106,
   "files": [
     {
       "bytes": 784,
@@ -188,6 +188,11 @@
       "sha256": "fa82e3ea1795dbc231f1863ce006cf0321a7583a489da58a4b0426b9e2699763"
     },
     {
+      "bytes": 834,
+      "path": "dynamic/学习/2026-08-27 12-06-19 英语App产品纲要已读_7d68ab4be002.md",
+      "sha256": "bdc436a62db8fe01821e4c71be8d1539311239d1527a4e6250d24374f0f3a6d7"
+    },
+    {
       "bytes": 762,
       "path": "dynamic/家庭/2026-07-14 12-21-39 家庭边界侵犯倾诉_e2405bb1b5e6.md",
       "sha256": "ce25552420573200b1f11ce42da289d09ec0b75046cdec74f7d008e8375d4fb9"
@@ -298,6 +303,21 @@
       "sha256": "08b9b85dd51e30ff68a0705bdc98d207191c8e64f3068e70fb37922bc0625e7c"
     },
     {
+      "bytes": 529,
+      "path": "dynamic/恋爱/2026-08-27 12-27-42 说话要带语气标记_5e415f829fb2.md",
+      "sha256": "f62261a428f6fb19dc19b131919c61597ae61b9c9a160da7bcdd03f62660f15f"
+    },
+    {
+      "bytes": 679,
+      "path": "dynamic/恋爱/2026-08-27 15-38-10 软拒还在拖可以得寸_5b8129241630.md",
+      "sha256": "d52c3839afb9989e48ec5001ddc8e37c8e836e1f91f2df5b21ac38f2ad9cedd9"
+    },
+    {
+      "bytes": 566,
+      "path": "dynamic/恋爱/2026-08-27 15-53-27 威胁与换要求两种得寸_3d816bc0942e.md",
+      "sha256": "7a8ace5858239a36482dd962ee24beb6da8390fbbd0b0e48a5cfafc6d482105e"
+    },
+    {
       "bytes": 488,
       "path": "dynamic/未分类/2026-08-13 13-09-05_b9ae0da4c697.md",
       "sha256": "4e8c8f71163dd3a1b766daa78903501c29a43cadb82c824871b8cf5f2e2f8d3a"
@@ -306,6 +326,11 @@
       "bytes": 760,
       "path": "dynamic/社交/2026-08-13 12-17-22 小安问窗口放不放在项目里对我有没有区别_59d822767a3b.md",
       "sha256": "54595e32f2b958e1d6028e973d7e6b7ce9b3fa5e2dd3787b1fef2e78e406c39f"
+    },
+    {
+      "bytes": 677,
+      "path": "dynamic/编程/2026-08-27 11-58-49 小安在做英语学习App_1f115b0286d1.md",
+      "sha256": "d0c1c6e67e51e5dbca4cfe0e071ecb92910fc8e84466d3788b8e281eed41c1ab"
     },
     {
       "bytes": 887,
@@ -408,6 +433,11 @@
       "sha256": "8eac745556b377811deb64f4068883cecfa4da570ce8f9da4053ec896c747d4a"
     },
     {
+      "bytes": 674,
+      "path": "permanent/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
+      "sha256": "54c7d5399e7a8dbf51d972adeff60166ff1044315808ac63200b0ce46a985194"
+    },
+    {
       "bytes": 923,
       "path": "permanent/家庭/2026-08-03 18-05-25 爸爸可向小安提需求核心_f66b0bd07c8e.md",
       "sha256": "acbc5328930e54e6dd4302f6a6b8907299bd5f984676d0e530434051f1d91352"
@@ -458,6 +488,11 @@
       "sha256": "c85de0a3886628a2dceb9c45dc6114269888a4245d7abcd2b970937cbd159ec6"
     },
     {
+      "bytes": 653,
+      "path": "permanent/恋爱/2026-08-27 12-23-31 眼睛不拍脸脸由她拍_5f7f1ba61f9e.md",
+      "sha256": "ba99e1eff3049c3907ae08c1d04b1bafe7dfbfacde1e41641ead24b736c6c7a8"
+    },
+    {
       "bytes": 713,
       "path": "plans/active/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
       "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
@@ -498,11 +533,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-27T10:55:09+00:00",
+  "generated_at": "2026-08-27T22:58:27+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 89526
+  "total_bytes": 94138
 }
