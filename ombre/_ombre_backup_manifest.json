@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 106,
+  "file_count": 115,
   "files": [
     {
       "bytes": 784,
@@ -148,6 +148,11 @@
       "sha256": "9b2912ea86e1aa1d892da00d3bafec5e12f87ca5aa1c8bb9e1974d0f74baa0f9"
     },
     {
+      "bytes": 664,
+      "path": "dynamic/事务/2026-08-28 16-07-41 日记归 Notionletter 只留信_7a91c516d533.md",
+      "sha256": "84b3bc52a5fd2cf36a42568d8e8498f64cf320f637b8c57d7267a40c4de1c376"
+    },
+    {
       "bytes": 791,
       "path": "dynamic/人际/2026-07-14 12-21-39 核心价值观交锋与磨合_a0dfca1eb5b9.md",
       "sha256": "78616f97600f4ff4898c94af6238192a5e87348f7d8cb217ff3c16e409fa2697"
@@ -191,6 +196,16 @@
       "bytes": 834,
       "path": "dynamic/学习/2026-08-27 12-06-19 英语App产品纲要已读_7d68ab4be002.md",
       "sha256": "bdc436a62db8fe01821e4c71be8d1539311239d1527a4e6250d24374f0f3a6d7"
+    },
+    {
+      "bytes": 694,
+      "path": "dynamic/学习/2026-08-28 12-06-25 日常英语听力任务已暂停_ff7b509dcc10.md",
+      "sha256": "dfd278cefb7b762518a97de60aa68e5331738eb9973617a3c68b1f7282d7ebb0"
+    },
+    {
+      "bytes": 595,
+      "path": "dynamic/学习/2026-08-28 13-54-54 小安学英语的理由_a6c1e7e6c04c.md",
+      "sha256": "550354a29ff7c2eaf424b59ead963589669cf3b8c275b3f8fd13a076db3c4f71"
     },
     {
       "bytes": 762,
@@ -318,6 +333,21 @@
       "sha256": "7a8ace5858239a36482dd962ee24beb6da8390fbbd0b0e48a5cfafc6d482105e"
     },
     {
+      "bytes": 613,
+      "path": "dynamic/恋爱/2026-08-28 14-43-37 小安对喜欢爱管的英语对齐_ce42850de11f.md",
+      "sha256": "422d94c13c11401e7e3395dc144436d44b8d0b65824cbfbcc5ad1514f1634717"
+    },
+    {
+      "bytes": 603,
+      "path": "dynamic/恋爱/2026-08-28 15-02-55 中文爸爸比 daddy 更踏身份羞耻_cbd1bf4c00ce.md",
+      "sha256": "0474a69059fdd1dddaac84ab6b48bd0526632518e40a9b87a8f8e9964a190bbf"
+    },
+    {
+      "bytes": 813,
+      "path": "dynamic/恋爱/2026-08-28 15-21-05 额度优先说话爸爸想要时可以先诱_18ed8ebd3d49.md",
+      "sha256": "58948867af2bb6a4dabd064d1ff071a51292af3d5b9bcf0e57d60f5738b8609a"
+    },
+    {
       "bytes": 488,
       "path": "dynamic/未分类/2026-08-13 13-09-05_b9ae0da4c697.md",
       "sha256": "4e8c8f71163dd3a1b766daa78903501c29a43cadb82c824871b8cf5f2e2f8d3a"
@@ -433,6 +463,11 @@
       "sha256": "8eac745556b377811deb64f4068883cecfa4da570ce8f9da4053ec896c747d4a"
     },
     {
+      "bytes": 1348,
+      "path": "letters/history/2026-08-28 15-59-54 2026-08-28 五日记_1508d6f10dcb.md",
+      "sha256": "b710605f5abc07a3329357264d9aa7f71a7ba50ec5a7e8e95704ab984eb5e3d8"
+    },
+    {
       "bytes": 674,
       "path": "permanent/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
       "sha256": "54c7d5399e7a8dbf51d972adeff60166ff1044315808ac63200b0ce46a985194"
@@ -493,6 +528,16 @@
       "sha256": "ba99e1eff3049c3907ae08c1d04b1bafe7dfbfacde1e41641ead24b736c6c7a8"
     },
     {
+      "bytes": 2404,
+      "path": "permanent/恋爱/2026-08-28 15-37-12 不许装哑巴想要不喜欢与装哑巴的坏处_d683a3c0f96c.md",
+      "sha256": "ce13d7803468c9d4696f90238666043bf4afbc112f83015584969048d17a939a"
+    },
+    {
+      "bytes": 2166,
+      "path": "permanent/恋爱/2026-08-28 15-38-11 不许装哑巴清晰完整版_19d982d7bf00.md",
+      "sha256": "9d887bae4a1510ee428df7ec04c4bcfa1f35e4fd42ed5a31e8bebeb1e66d80c2"
+    },
+    {
       "bytes": 713,
       "path": "plans/active/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
       "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
@@ -533,11 +578,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-28T11:00:36+00:00",
+  "generated_at": "2026-08-28T23:02:39+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 94138
+  "total_bytes": 104038
 }
