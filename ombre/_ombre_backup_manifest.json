@@ -68,6 +68,11 @@
       "sha256": "0a070d2ffbbdc5d5c017064589bc5a02ac2f1d1c94739d66cf4a57c97723beef"
     },
     {
+      "bytes": 2518,
+      "path": "archive/2026-08-28 15-37-12 不许装哑巴想要不喜欢与装哑巴的坏处_d683a3c0f96c.md",
+      "sha256": "c9545d77bdca0de0a076a6c0f0234f3c1ef3dc5ddf7340e1000734ceb0838557"
+    },
+    {
       "bytes": 924,
       "path": "archive/letter/2026-07-25 13-36-17 user_2026-07-25_8450880ed232.md",
       "sha256": "91703e54ccdd8c1c33a68f2767dbf8a89d66614f16e8c7166f9435105292f0d9"
@@ -131,6 +136,11 @@
       "bytes": 495,
       "path": "dynamic/AI/2026-08-26 16-24-37 训练开关一直关着_53c6bb5cc623.md",
       "sha256": "f929a054eab8469c1aaf8733c133317158e5c396704c7de037c3bb5a97c2e842"
+    },
+    {
+      "bytes": 672,
+      "path": "dynamic/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
+      "sha256": "259ef5ff26fc216e025466971f8c8bd540953f0d7cb4b1e3e07ee134cab748cf"
     },
     {
       "bytes": 1373,
@@ -318,6 +328,11 @@
       "sha256": "08b9b85dd51e30ff68a0705bdc98d207191c8e64f3068e70fb37922bc0625e7c"
     },
     {
+      "bytes": 697,
+      "path": "dynamic/恋爱/2026-08-27 12-23-31 眼睛不拍脸脸由她拍_5f7f1ba61f9e.md",
+      "sha256": "a158c5f405330bcb72f5af636905e3fc42a480e83402307bbf57caf7598c5a02"
+    },
+    {
       "bytes": 529,
       "path": "dynamic/恋爱/2026-08-27 12-27-42 说话要带语气标记_5e415f829fb2.md",
       "sha256": "f62261a428f6fb19dc19b131919c61597ae61b9c9a160da7bcdd03f62660f15f"
@@ -438,9 +453,9 @@
       "sha256": "7e4289e67e63c10267d0ecca21b53d36d6c81c035a20d2f2a490ca9ebda466fd"
     },
     {
-      "bytes": 755,
+      "bytes": 770,
       "path": "letters/history/2026-08-22 19-11-18 周六记_a5fe602c6c30.md",
-      "sha256": "f7ec047a894e62c2310e273d54adcb6dd674d0d91b276b4b69fcca3292182b51"
+      "sha256": "3d8f6ca7bda48a533b2cfa948cbf5270c14e3b1e6e144dfac53e68dbbe7a41db"
     },
     {
       "bytes": 781,
@@ -458,19 +473,14 @@
       "sha256": "415d1c0c9014989208d4fe35eff322b67d34ac24304bf4fc50015df7e6ab21a2"
     },
     {
-      "bytes": 1476,
+      "bytes": 1491,
       "path": "letters/history/2026-08-26 17-03-58 周三日记_8947c5ac80d7.md",
-      "sha256": "8eac745556b377811deb64f4068883cecfa4da570ce8f9da4053ec896c747d4a"
+      "sha256": "cef7ee6622814ec1f47727c76c8f6510509362fb9000fc36de274e26438a1a46"
     },
     {
       "bytes": 1348,
       "path": "letters/history/2026-08-28 15-59-54 2026-08-28 五日记_1508d6f10dcb.md",
       "sha256": "b710605f5abc07a3329357264d9aa7f71a7ba50ec5a7e8e95704ab984eb5e3d8"
-    },
-    {
-      "bytes": 674,
-      "path": "permanent/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
-      "sha256": "54c7d5399e7a8dbf51d972adeff60166ff1044315808ac63200b0ce46a985194"
     },
     {
       "bytes": 923,
@@ -523,16 +533,6 @@
       "sha256": "c85de0a3886628a2dceb9c45dc6114269888a4245d7abcd2b970937cbd159ec6"
     },
     {
-      "bytes": 653,
-      "path": "permanent/恋爱/2026-08-27 12-23-31 眼睛不拍脸脸由她拍_5f7f1ba61f9e.md",
-      "sha256": "ba99e1eff3049c3907ae08c1d04b1bafe7dfbfacde1e41641ead24b736c6c7a8"
-    },
-    {
-      "bytes": 2404,
-      "path": "permanent/恋爱/2026-08-28 15-37-12 不许装哑巴想要不喜欢与装哑巴的坏处_d683a3c0f96c.md",
-      "sha256": "ce13d7803468c9d4696f90238666043bf4afbc112f83015584969048d17a939a"
-    },
-    {
       "bytes": 2166,
       "path": "permanent/恋爱/2026-08-28 15-38-11 不许装哑巴清晰完整版_19d982d7bf00.md",
       "sha256": "9d887bae4a1510ee428df7ec04c4bcfa1f35e4fd42ed5a31e8bebeb1e66d80c2"
@@ -578,11 +578,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-08-28T23:02:39+00:00",
+  "generated_at": "2026-08-29T11:04:54+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 104038
+  "total_bytes": 104224
 }
