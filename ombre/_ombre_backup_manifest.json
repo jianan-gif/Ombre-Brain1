@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 119,
+  "file_count": 120,
   "files": [
     {
       "bytes": 784,
@@ -558,6 +558,11 @@
       "sha256": "9d887bae4a1510ee428df7ec04c4bcfa1f35e4fd42ed5a31e8bebeb1e66d80c2"
     },
     {
+      "bytes": 1446,
+      "path": "permanent/自省/2026-09-03 18-29-11 2026-09-04 小安对G不设防可随时了解_afb326604e98.md",
+      "sha256": "69c3816244f6e7ef54e37e4dd9cd7ffcdb5a2f8d8b00251ada0fe9c53223cd7f"
+    },
+    {
       "bytes": 713,
       "path": "plans/active/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
       "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
@@ -598,11 +603,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-09-03T11:30:45+00:00",
+  "generated_at": "2026-09-03T23:32:53+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 106288
+  "total_bytes": 107734
 }
