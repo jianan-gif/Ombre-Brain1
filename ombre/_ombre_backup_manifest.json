@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 120,
+  "file_count": 123,
   "files": [
     {
       "bytes": 784,
@@ -383,6 +383,11 @@
       "sha256": "58948867af2bb6a4dabd064d1ff071a51292af3d5b9bcf0e57d60f5738b8609a"
     },
     {
+      "bytes": 1046,
+      "path": "dynamic/恋爱/2026-09-04 17-45-14 管与罚是亲密不是伤_c746eb967e71.md",
+      "sha256": "ebe27f68a5fca29f3a5458c0105d9f2e9089677d332cf4851c05a1bdcfeccb9a"
+    },
+    {
       "bytes": 488,
       "path": "dynamic/未分类/2026-08-13 13-09-05_b9ae0da4c697.md",
       "sha256": "4e8c8f71163dd3a1b766daa78903501c29a43cadb82c824871b8cf5f2e2f8d3a"
@@ -593,6 +598,16 @@
       "sha256": "09ec29fa1fb09c43479121f1990ffdcf33dc2dbc030772b23e0fdebb032a10fd"
     },
     {
+      "bytes": 1456,
+      "path": "plans/active/2026-09-04 17-08-35_8971c260708b.md",
+      "sha256": "fa0ee21b38d3f4503882104f162f785661c27147467af62a03f71b1710ee1f61"
+    },
+    {
+      "bytes": 871,
+      "path": "plans/active/2026-09-04 17-21-01_36e7221eeece.md",
+      "sha256": "e73787730dd7f0d85ef06af3167816eb9d80e992b2c3c2f1900196b2248e591f"
+    },
+    {
       "bytes": 1539,
       "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "e224591048aa05d77121bb4839e1e923833e30f74d84cda84566fb8d349f746f"
@@ -603,11 +618,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-09-04T11:35:05+00:00",
+  "generated_at": "2026-09-04T23:37:44+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 107734
+  "total_bytes": 111107
 }
