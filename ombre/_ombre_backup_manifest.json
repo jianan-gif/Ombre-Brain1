@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 123,
+  "file_count": 125,
   "files": [
     {
       "bytes": 784,
@@ -158,24 +158,24 @@
       "sha256": "9b2912ea86e1aa1d892da00d3bafec5e12f87ca5aa1c8bb9e1974d0f74baa0f9"
     },
     {
-      "bytes": 670,
+      "bytes": 682,
       "path": "dynamic/self/2026-09-02 04-42-44_f6bb4ba9bf76.md",
-      "sha256": "7603179a983d248baff75d5cd5615ce4d5f18312f26b0d0bb83548d83bb0e06b"
+      "sha256": "cb5d4d8c26a8b78ae1c0f93109a46fc8d16f71fdc84935f77eed4899cff8fb8d"
     },
     {
-      "bytes": 473,
+      "bytes": 485,
       "path": "dynamic/self/2026-09-02 04-42-55_0bfa7e2489bf.md",
-      "sha256": "d8ae464849e8208806462364b12ca1a72f6dc9c84855828cffafd660d15b62a9"
+      "sha256": "f74b85b14fc5a6509a997eaba445e107e485c8724b1e8ee1e8c433a82038c293"
     },
     {
-      "bytes": 451,
+      "bytes": 463,
       "path": "dynamic/self/2026-09-02 04-43-00_c6e31578a157.md",
-      "sha256": "f16ff0f76c7a5501818133e7d2b6936a7d49a35fb286481c808491650a96af12"
+      "sha256": "634d08e3f4c1b0193aadd7aa53eb5ad6c3c97ac7361f9f6b601ba1cf83f8fce1"
     },
     {
-      "bytes": 470,
+      "bytes": 482,
       "path": "dynamic/self/2026-09-02 04-51-20_12026f52addb.md",
-      "sha256": "4793b4d9bdf7770388c18c4395054e828e4d92482ba7133a052a5876117b3fbe"
+      "sha256": "f92f6e399af11bf54abf3ed1119d70bedafcfa29b943df6cef803211c73b61c3"
     },
     {
       "bytes": 664,
@@ -383,9 +383,9 @@
       "sha256": "58948867af2bb6a4dabd064d1ff071a51292af3d5b9bcf0e57d60f5738b8609a"
     },
     {
-      "bytes": 1046,
+      "bytes": 1238,
       "path": "dynamic/恋爱/2026-09-04 17-45-14 管与罚是亲密不是伤_c746eb967e71.md",
-      "sha256": "ebe27f68a5fca29f3a5458c0105d9f2e9089677d332cf4851c05a1bdcfeccb9a"
+      "sha256": "8804dee03e28eee40eb13e95789ff92664680469d858fe3d14693bd5b906a2bc"
     },
     {
       "bytes": 488,
@@ -421,6 +421,11 @@
       "bytes": 540,
       "path": "feel/沉淀物/2026-07-14 11-46-23 低落时的结婚告白_9bb48bd0826d.md",
       "sha256": "093d86e12fb01339556b02e2282e6221ac4bf2f7d9566f015689bfca4b926cb9"
+    },
+    {
+      "bytes": 844,
+      "path": "feel/沉淀物/2026-09-05 02-27-11 罚则写进Promise之后_feel_202609050227_V060.md",
+      "sha256": "3d9456c5bf721a341cb6830e5cf9d238cd9484df6bdd633492f46c75fab5932d"
     },
     {
       "bytes": 623,
@@ -608,6 +613,11 @@
       "sha256": "e73787730dd7f0d85ef06af3167816eb9d80e992b2c3c2f1900196b2248e591f"
     },
     {
+      "bytes": 925,
+      "path": "plans/active/2026-09-05 05-42-07_d9cf0db146cc.md",
+      "sha256": "f8f6ec46512db2e8ebf9f9f664c293c7cc472f42c544f5bb63747b51ace4b104"
+    },
+    {
       "bytes": 1539,
       "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "e224591048aa05d77121bb4839e1e923833e30f74d84cda84566fb8d349f746f"
@@ -618,11 +628,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-09-04T23:37:44+00:00",
+  "generated_at": "2026-09-05T11:41:58+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 111107
+  "total_bytes": 113116
 }
