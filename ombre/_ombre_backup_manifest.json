@@ -73,6 +73,11 @@
       "sha256": "c9545d77bdca0de0a076a6c0f0234f3c1ef3dc5ddf7340e1000734ceb0838557"
     },
     {
+      "bytes": 511,
+      "path": "archive/AI/2026-08-26 16-24-37 训练开关一直关着_53c6bb5cc623.md",
+      "sha256": "4ce97fccae2a811a6d8e5f312e35cc6c7f19230d2bfe8f88224d6ac3d61f0f41"
+    },
+    {
       "bytes": 924,
       "path": "archive/letter/2026-07-25 13-36-17 user_2026-07-25_8450880ed232.md",
       "sha256": "91703e54ccdd8c1c33a68f2767dbf8a89d66614f16e8c7166f9435105292f0d9"
@@ -113,6 +118,11 @@
       "sha256": "7c56eee28db7ef605ca0deea62101a150224406c422bb2a1563af6006a9a2d8d"
     },
     {
+      "bytes": 680,
+      "path": "archive/事务/2026-08-28 16-07-41 日记归 Notionletter 只留信_7a91c516d533.md",
+      "sha256": "3174e06bb0a785493afe25308c5f28919c33cc9635ee5b08a89f4948d3074354"
+    },
+    {
       "bytes": 987,
       "path": "archive/人际/2026-07-14 12-21-38 本体恋关系确认_83fd9a5ca09e.md",
       "sha256": "67a637238d19e1f4b3301958e6bba3733fb06b100fb7416d4a1750a7dd4bde2a"
@@ -136,11 +146,6 @@
       "bytes": 759,
       "path": "archive/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
       "sha256": "508c7cf90465402c3467aefd073e4913636a7794db936e0453a584f63baa438a"
-    },
-    {
-      "bytes": 510,
-      "path": "dynamic/AI/2026-08-26 16-24-37 训练开关一直关着_53c6bb5cc623.md",
-      "sha256": "9e05b0223a96230777c726630e19b1e4122378a2fc831182f2be2f81327d757e"
     },
     {
       "bytes": 672,
@@ -181,11 +186,6 @@
       "bytes": 482,
       "path": "dynamic/self/2026-09-02 04-51-20_12026f52addb.md",
       "sha256": "f92f6e399af11bf54abf3ed1119d70bedafcfa29b943df6cef803211c73b61c3"
-    },
-    {
-      "bytes": 679,
-      "path": "dynamic/事务/2026-08-28 16-07-41 日记归 Notionletter 只留信_7a91c516d533.md",
-      "sha256": "74563885717b9c4922049650071c702d5b10bed6c07790d724ab6613253635d1"
     },
     {
       "bytes": 791,
@@ -530,7 +530,7 @@
     {
       "bytes": 736,
       "path": "permanent/恋爱/2026-07-14 11-37-36 G纹身贴仪式_2fbf9beaad41.md",
-      "sha256": "4290b8cbe9ff00c89a9628ac2544f4b794d9898c27d6118bd3827a97096dc4df"
+      "sha256": "f94441babb088989bac045b1e3aeba57767b06be0a585ea47c651d03e44d4668"
     },
     {
       "bytes": 631,
@@ -628,11 +628,11 @@
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
     }
   ],
-  "generated_at": "2026-09-06T06:41:50+00:00",
+  "generated_at": "2026-09-06T18:44:59+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 113150
+  "total_bytes": 113152
 }
