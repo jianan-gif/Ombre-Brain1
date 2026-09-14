@@ -9,7 +9,7 @@
 # streamable-http: remote use (HTTP, tunnel/CDN/proxy friendly)
 # stdio: 本地使用（Claude Desktop，直接管道通信）
 # streamable-http: 远程使用（标准 HTTP，对隧道/CDN/代理友好）
-transport: "stdio"
+transport: "streamable-http"
 
 # --- Public deployment origin / 公网部署来源地址 ---
 # 公网安全模式填写外部 HTTPS origin；不要包含凭据、查询参数或片段。
