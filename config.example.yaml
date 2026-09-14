@@ -18,7 +18,7 @@ transport: "stdio"
 # Set the external HTTPS origin for public-secure deployments. Dashboard also accepts a full
 # https://example.com/mcp URL and stores its canonical origin. Restart and reauthorize after changes.
 deployment:
-  public_url: ""  # e.g. "https://ob.example.com"
+  public_url: "https://ombre-braingrok.zeabur.app"  # e.g. "https://ob.example.com"
 
 # --- AI display name / AI 一方的显示名 ---
 # 用于 letter 署名、prompt 与面向用户的文案，避免硬编码具体模型名。
