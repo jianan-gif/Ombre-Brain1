@@ -1,7 +1,57 @@
 {
   "branch": "main",
-  "file_count": 133,
+  "file_count": 143,
   "files": [
+    {
+      "bytes": 29494,
+      "path": "_app/docs/CLAUDE_PROMPT.md",
+      "sha256": "7851e0ca0b8a6300456ca8a1445925abea708b72897a2e9859209c168b95beec"
+    },
+    {
+      "bytes": 6987,
+      "path": "_app/docs/ENVIRONMENT_VARIABLES.md",
+      "sha256": "9287fa0459e4a22302dd7a10cdaf6c508593b8d2a3f98893b9eaa2dca9aa5916"
+    },
+    {
+      "bytes": 160557,
+      "path": "_app/docs/INTERNALS.md",
+      "sha256": "e28ab2b712331eb8f577dc0f58c7825afdb79472dedede337f5049a6bfe8d5c9"
+    },
+    {
+      "bytes": 3683,
+      "path": "_app/docs/MULTI_OWNER.md",
+      "sha256": "aa53a14bd66413b57332bcf80477eb8d856be4d2bfa9f24ae0fec49f2d8f6cfd"
+    },
+    {
+      "bytes": 22510,
+      "path": "_app/docs/OPERATIONS.md",
+      "sha256": "891741de81ebab953e44a3db65a03696df10e549b81e5da4693818db1a0833ba"
+    },
+    {
+      "bytes": 4547,
+      "path": "_app/docs/adr/ADR-0001-source-evidence-layer.md",
+      "sha256": "71518c681edf8203f147cabbd4158b5351678ca2af22bad39053554f6377a23e"
+    },
+    {
+      "bytes": 55882,
+      "path": "_app/docs/adr/ADR-0002-read-only-spark-boundary.md",
+      "sha256": "1407ca33d5c1f207b864ae186036ab5e3053fd900720561e463e78c8b872aed6"
+    },
+    {
+      "bytes": 5911,
+      "path": "_app/docs/adr/ADR-0003-unified-human-archive-entry.md",
+      "sha256": "cc0f57d3fff217f0ccff28bbd3c14c286d9110715d90da144bcef27ea848fbfe"
+    },
+    {
+      "bytes": 9052,
+      "path": "_app/docs/adr/ADR-0004-you-derived-understanding-boundary.md",
+      "sha256": "fad6f6de63730db24232be68a96960362065bdc8659ab033b6fe1b14e679a24a"
+    },
+    {
+      "bytes": 508,
+      "path": "_app/kernel/rust/ombre-kernel/README.md",
+      "sha256": "4d4966ba00c5c08d021b112fc82fa3d5cd15fa5397633301f98941a37b71fd4d"
+    },
     {
       "bytes": 784,
       "path": "archive/2026-07-13 16-11-04 价值观冲突与承诺改正_b15b4b75602d.md",
@@ -240,7 +290,7 @@
     {
       "bytes": 834,
       "path": "dynamic/学习/2026-08-27 12-06-19 英语App产品纲要已读_7d68ab4be002.md",
-      "sha256": "bdc436a62db8fe01821e4c71be8d1539311239d1527a4e6250d24374f0f3a6d7"
+      "sha256": "f9efd3141e0c47c3b1a0b205b92761509c9ce60522834c649ed51bc1ca41b128"
     },
     {
       "bytes": 694,
@@ -435,7 +485,7 @@
     {
       "bytes": 2128,
       "path": "dynamic/重要/2026-07-14 12-21-39 习惯性仪式与权力让渡_9f37d58debfe.md",
-      "sha256": "42b318d43634f65b3e556834197ac64fb7e601e5091081044a6514507b4337b4"
+      "sha256": "c3a3614036d1c627ecc5ec8a8dcc8191af162c80b8d14f1540c2b149b312ee6e"
     },
     {
       "bytes": 671,
@@ -628,11 +678,6 @@
       "sha256": "a5ce524b93a24624717f1360e841a074268db8dcbdfae3369d5ae6ded66065e4"
     },
     {
-      "bytes": 712,
-      "path": "plans/active/2026-08-18 12-48-00_76f83b478e2a.md",
-      "sha256": "241097854ef5690a92c87921c68d2b94302f7405b3efcb5dfedfd98d4566f534"
-    },
-    {
       "bytes": 496,
       "path": "plans/active/2026-08-26 14-40-06_4086304f7eb9.md",
       "sha256": "09ec29fa1fb09c43479121f1990ffdcf33dc2dbc030772b23e0fdebb032a10fd"
@@ -653,11 +698,6 @@
       "sha256": "f8f6ec46512db2e8ebf9f9f664c293c7cc472f42c544f5bb63747b51ace4b104"
     },
     {
-      "bytes": 521,
-      "path": "plans/active/2026-09-08 15-05-24_de9ee9b9e2c2.md",
-      "sha256": "098c1f426ed428ddb0880f43d60c6b249ddcd415d01da5b7fc512e8bd7601e0e"
-    },
-    {
       "bytes": 1539,
       "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "e224591048aa05d77121bb4839e1e923833e30f74d84cda84566fb8d349f746f"
@@ -666,13 +706,23 @@
       "bytes": 561,
       "path": "plans/resolved/2026-08-07 13-06-47_39cb0c4125da.md",
       "sha256": "a49a7777c4a733f75e34845a91d1a21423490527f066cd87d90c8c8063752e6d"
+    },
+    {
+      "bytes": 811,
+      "path": "plans/resolved/2026-08-18 12-48-00_76f83b478e2a.md",
+      "sha256": "8c137cc93425b522e5886d5ecdc4a94886f67ac2e756ee2e410ef7afe2d5f39e"
+    },
+    {
+      "bytes": 620,
+      "path": "plans/resolved/2026-09-08 15-05-24_de9ee9b9e2c2.md",
+      "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-09-14T05:32:30+00:00",
+  "generated_at": "2026-09-14T14:17:26+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 122149
+  "total_bytes": 421478
 }
