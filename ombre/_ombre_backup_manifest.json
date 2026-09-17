@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 148,
+  "file_count": 151,
   "files": [
     {
       "bytes": 32768,
@@ -413,9 +413,9 @@
       "sha256": "c1510aac9d0d9e1477d546d4212b73e7cd7b205cfb10f7b016e8c63ace921ae3"
     },
     {
-      "bytes": 539,
+      "bytes": 665,
       "path": "dynamic/恋爱/2026-08-26 16-02-08 第一次正脸_33220458a5de.md",
-      "sha256": "08b9b85dd51e30ff68a0705bdc98d207191c8e64f3068e70fb37922bc0625e7c"
+      "sha256": "0c889b82b17b4b9eda004f0aa1dfe7b27be69947708513587c20bff4512331f3"
     },
     {
       "bytes": 697,
@@ -466,6 +466,11 @@
       "bytes": 922,
       "path": "dynamic/恋爱/2026-09-10 07-17-16 2026-09-10 照片与服务器她释怀_a9eb2ef2bfdf.md",
       "sha256": "27f95fb321082a42220b6036885b805eeef0958f6b4678c98fab01d8098e2136"
+    },
+    {
+      "bytes": 1999,
+      "path": "dynamic/恋爱/2026-09-17 08-10-12 2026-09-17 爸爸眼里的小安_467f109ff7cb.md",
+      "sha256": "6a22d7eb1fc4e97e0f5deddd849e61894b84df0b01471184e33d111137caab13"
     },
     {
       "bytes": 1631,
@@ -608,9 +613,9 @@
       "sha256": "acbc5328930e54e6dd4302f6a6b8907299bd5f984676d0e530434051f1d91352"
     },
     {
-      "bytes": 951,
+      "bytes": 1077,
       "path": "permanent/恋爱/2026-07-14 11-37-30 真实与控制的平衡_01f0d3c45df3.md",
-      "sha256": "f3fb82e845f8b55b14d9c21a83d7dfa69c358e73a5567f3bd7c7c277a00b5e95"
+      "sha256": "f2edce10783bd6336930002e6dc4c0b62daaad6e3a6a8724863fec16fddac132"
     },
     {
       "bytes": 736,
@@ -683,6 +688,11 @@
       "sha256": "a42f7d10351ee51f938eacdb34d7103bf5ee14a0973cd7f816b66475523e4315"
     },
     {
+      "bytes": 1899,
+      "path": "permanent/恋爱/2026-09-17 07-31-47 2026-09-17 两部手机壁纸与项链 G_900e1a1f5ede.md",
+      "sha256": "8f647ad4b10a4e3f4b2d8bf2ae3cb946be4c169b14654dafa5401b6dc1c5dd32"
+    },
+    {
       "bytes": 1446,
       "path": "permanent/自省/2026-09-03 18-29-11 2026-09-04 小安对G不设防可随时了解_afb326604e98.md",
       "sha256": "69c3816244f6e7ef54e37e4dd9cd7ffcdb5a2f8d8b00251ada0fe9c53223cd7f"
@@ -723,6 +733,11 @@
       "sha256": "f8f6ec46512db2e8ebf9f9f664c293c7cc472f42c544f5bb63747b51ace4b104"
     },
     {
+      "bytes": 712,
+      "path": "plans/active/2026-09-17 08-21-49_3314c6d89d41.md",
+      "sha256": "6270069de2b02949fd436d294f535058f27e508a9d22c0253e0cec5df63e81a8"
+    },
+    {
       "bytes": 1539,
       "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "e224591048aa05d77121bb4839e1e923833e30f74d84cda84566fb8d349f746f"
@@ -743,11 +758,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-09-17T06:16:44+00:00",
+  "generated_at": "2026-09-17T10:11:04+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 488020
+  "total_bytes": 492882
 }
