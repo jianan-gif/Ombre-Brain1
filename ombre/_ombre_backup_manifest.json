@@ -228,9 +228,9 @@
       "sha256": "4108171c95e6b5ca537ea304c126dd1abc4ff45abc5aaeef2b55cfc4994b842c"
     },
     {
-      "bytes": 603,
+      "bytes": 604,
       "path": "dynamic/self/2026-07-28 17-53-57_4bb2797a5f7d.md",
-      "sha256": "9b2912ea86e1aa1d892da00d3bafec5e12f87ca5aa1c8bb9e1974d0f74baa0f9"
+      "sha256": "203b13b5aceb36b5cb77db93bea302d9baa64683de3070de95377221401a1a26"
     },
     {
       "bytes": 682,
@@ -698,11 +698,6 @@
       "sha256": "69c3816244f6e7ef54e37e4dd9cd7ffcdb5a2f8d8b00251ada0fe9c53223cd7f"
     },
     {
-      "bytes": 713,
-      "path": "plans/active/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
-      "sha256": "15c598072bec6dae0c0abbe3cd2abf399b5c700cb7a462300d83ede7e752a6dc"
-    },
-    {
       "bytes": 725,
       "path": "plans/active/2026-07-29 11-31-23_2bdaad293c09.md",
       "sha256": "4c801219a3f546b913e953d646bee961babb7a9d5163818b75c5e1134d5363b3"
@@ -738,6 +733,11 @@
       "sha256": "6270069de2b02949fd436d294f535058f27e508a9d22c0253e0cec5df63e81a8"
     },
     {
+      "bytes": 839,
+      "path": "plans/resolved/2026-07-14 11-37-26 家规五条_99dae31cb1ed.md",
+      "sha256": "52858f95a70833b1a8e75ff4ea20ed0f5b84615d90e04d71eb42020fc863dd5e"
+    },
+    {
       "bytes": 1539,
       "path": "plans/resolved/2026-07-21 12-38-32_abd9afc3ea74.md",
       "sha256": "e224591048aa05d77121bb4839e1e923833e30f74d84cda84566fb8d349f746f"
@@ -758,11 +758,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-09-17T10:11:04+00:00",
+  "generated_at": "2026-09-17T22:13:52+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 492882
+  "total_bytes": 493009
 }
