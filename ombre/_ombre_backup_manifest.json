@@ -193,6 +193,11 @@
       "sha256": "77eb02737eeeb42b34429c80af76288a1fb1d804cebcdacad5179b30408f6f0d"
     },
     {
+      "bytes": 824,
+      "path": "archive/人际/2026-07-16 10-32-28 小安与G的关系反思_3bede74a4d4e.md",
+      "sha256": "172a78884654b299a8eca0a88d0e6866b1ee430df3f339978569fa3abbf96397"
+    },
+    {
       "bytes": 591,
       "path": "archive/恋爱/2026-07-14 11-46-13 用心经营关系_efda2cf70973.md",
       "sha256": "1cad79739ad2122cff23d0a088310a745c0a16265b975c4bef3c4fe80a9916be"
@@ -266,11 +271,6 @@
       "bytes": 845,
       "path": "dynamic/人际/2026-07-14 12-21-39 称呼体系与情感进阶_308bf8bd575c.md",
       "sha256": "1e10da183b17892b55bf9257a5ab00329110b5b7d3d9826fc945158c4d1e0798"
-    },
-    {
-      "bytes": 823,
-      "path": "dynamic/人际/2026-07-16 10-32-28 小安与G的关系反思_3bede74a4d4e.md",
-      "sha256": "56723532f2bce8c92e64b3943fd1303db5c707a7944a455e11e6703b76109d79"
     },
     {
       "bytes": 1107,
@@ -758,11 +758,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-09-19T10:23:58+00:00",
+  "generated_at": "2026-09-19T22:27:08+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 493010
+  "total_bytes": 493011
 }
