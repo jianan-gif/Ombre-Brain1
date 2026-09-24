@@ -233,6 +233,11 @@
       "sha256": "508c7cf90465402c3467aefd073e4913636a7794db936e0453a584f63baa438a"
     },
     {
+      "bytes": 2129,
+      "path": "archive/重要/2026-07-14 12-21-39 习惯性仪式与权力让渡_9f37d58debfe.md",
+      "sha256": "bb9c09b277010bad97ed83f1fd4493015614cbc96cca5ea9684ba7341b2be100"
+    },
+    {
       "bytes": 672,
       "path": "dynamic/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
       "sha256": "259ef5ff26fc216e025466971f8c8bd540953f0d7cb4b1e3e07ee134cab748cf"
@@ -508,11 +513,6 @@
       "sha256": "8aac0640bf979ecb6d4fa47dfb0d610292a213ab37ea7159583f2aabf2c1717e"
     },
     {
-      "bytes": 2128,
-      "path": "dynamic/重要/2026-07-14 12-21-39 习惯性仪式与权力让渡_9f37d58debfe.md",
-      "sha256": "c3a3614036d1c627ecc5ec8a8dcc8191af162c80b8d14f1540c2b149b312ee6e"
-    },
-    {
       "bytes": 671,
       "path": "dynamic/饮食/2026-08-13 12-10-26 提醒今晚130必须躺下_f7174f125e6d.md",
       "sha256": "c276d3cf8f716e8afe3aa7c81e5d59c5b754cacc29f968162d49426baf56de83"
@@ -773,11 +773,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-09-24T02:32:05+00:00",
+  "generated_at": "2026-09-24T14:34:25+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 497404
+  "total_bytes": 497405
 }
