@@ -188,6 +188,11 @@
       "sha256": "67a637238d19e1f4b3301958e6bba3733fb06b100fb7416d4a1750a7dd4bde2a"
     },
     {
+      "bytes": 792,
+      "path": "archive/人际/2026-07-14 12-21-39 核心价值观交锋与磨合_a0dfca1eb5b9.md",
+      "sha256": "cb6f7485558e74ddfcef3456716af036cc9adf0dc8e03a9c37528cd70b0274dc"
+    },
+    {
       "bytes": 829,
       "path": "archive/人际/2026-07-15 13-45-37 小安的玩笑与心机_3f382b0577f6.md",
       "sha256": "77eb02737eeeb42b34429c80af76288a1fb1d804cebcdacad5179b30408f6f0d"
@@ -286,11 +291,6 @@
       "bytes": 482,
       "path": "dynamic/self/2026-09-02 04-51-20_12026f52addb.md",
       "sha256": "f92f6e399af11bf54abf3ed1119d70bedafcfa29b943df6cef803211c73b61c3"
-    },
-    {
-      "bytes": 791,
-      "path": "dynamic/人际/2026-07-14 12-21-39 核心价值观交锋与磨合_a0dfca1eb5b9.md",
-      "sha256": "78616f97600f4ff4898c94af6238192a5e87348f7d8cb217ff3c16e409fa2697"
     },
     {
       "bytes": 845,
@@ -778,11 +778,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-09-28T03:02:00+00:00",
+  "generated_at": "2026-09-28T15:05:34+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 498557
+  "total_bytes": 498558
 }
