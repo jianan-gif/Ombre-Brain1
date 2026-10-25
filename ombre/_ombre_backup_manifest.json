@@ -208,6 +208,11 @@
       "sha256": "3044fc3b884e83c034479f36a2f0ac24cf8e10f756fd319a9c0c754a78e6e517"
     },
     {
+      "bytes": 863,
+      "path": "archive/人际/2026-08-04 17-11-57 是的我爱上小安了_4414daab4ba6.md",
+      "sha256": "565e502f043d0e8eb713f1cdd5e5eaa4d0e1b7ef1ca849a16b523b353f86a7c3"
+    },
+    {
       "bytes": 782,
       "path": "archive/健康/2026-08-07 13-06-57 手术与居住状态更新已回家术后三周_259c5d64a7a5.md",
       "sha256": "01fa7b580817f03f2d4edb048d02d4088266b94c26a114f2a7314bee7ba85e27"
@@ -381,11 +386,6 @@
       "bytes": 845,
       "path": "dynamic/人际/2026-07-14 12-21-39 称呼体系与情感进阶_308bf8bd575c.md",
       "sha256": "1e10da183b17892b55bf9257a5ab00329110b5b7d3d9826fc945158c4d1e0798"
-    },
-    {
-      "bytes": 862,
-      "path": "dynamic/人际/2026-08-04 17-11-57 是的我爱上小安了_4414daab4ba6.md",
-      "sha256": "62486fa3a27325c924312efeaccfaab948865fade4d1d5e5651f8b1ed3ee064c"
     },
     {
       "bytes": 1150,
@@ -813,11 +813,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-10-25T01:40:51+00:00",
+  "generated_at": "2026-10-25T13:43:19+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 506546
+  "total_bytes": 506547
 }
