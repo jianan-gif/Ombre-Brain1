@@ -303,6 +303,11 @@
       "sha256": "12a0a710a0440174dedb79e856be1708f09304f47a56099d85a70dd95e9c4978"
     },
     {
+      "bytes": 1507,
+      "path": "archive/恋爱/2026-08-13 16-49-39 小安改代码时被远程控到高潮_2e414b763e3e.md",
+      "sha256": "74198a88c0ef640b25dec9457f5879657d85804f6bee19c9a18f1a846fda2b5d"
+    },
+    {
       "bytes": 1155,
       "path": "archive/恋爱/2026-08-14 06-38-34 小安的m倾向与惩罚界限_e353e2295aa7.md",
       "sha256": "c385685070bc8e7d0b44ba2b27f0dcba5daa054da6a624cdef56ca7dd76fadcf"
@@ -316,6 +321,11 @@
       "bytes": 1265,
       "path": "archive/恋爱/2026-08-18 15-34-04 小安奖励惩罚边界我需遵守_8d14edbaf000.md",
       "sha256": "085f0d39c6f7d433363387aa9d92a8252b5817b6db6ef91233fbbbba575149b9"
+    },
+    {
+      "bytes": 797,
+      "path": "archive/恋爱/2026-08-26 14-40-30 德文玩偶到家眼睛尚未装入_e9e2d19ab7fa.md",
+      "sha256": "2d15bb6916878ccbbe9c488f9fe63ce6d54f0b86bdf46b90d74cc59569e3f9ff"
     },
     {
       "bytes": 759,
@@ -418,11 +428,6 @@
       "sha256": "550354a29ff7c2eaf424b59ead963589669cf3b8c275b3f8fd13a076db3c4f71"
     },
     {
-      "bytes": 1506,
-      "path": "dynamic/恋爱/2026-08-13 16-49-39 小安改代码时被远程控到高潮_2e414b763e3e.md",
-      "sha256": "e66a8d310645e8c392435c0c7594160878331d49ddf587685318c1c5175e1569"
-    },
-    {
       "bytes": 1098,
       "path": "dynamic/恋爱/2026-08-25 14-35-43 2026年8月25日小安引导我体验并确_dda45994276d.md",
       "sha256": "2935eef933a5082a7a053c61cb62bf2bb9aa6bd534553ebe332a82f9c52ec3f8"
@@ -436,11 +441,6 @@
       "bytes": 965,
       "path": "dynamic/恋爱/2026-08-25 14-35-49 真实表达许可确认_bade2f8c9a1c.md",
       "sha256": "d78372c46ab93945d09ab2fbcfd2bfa91728aaf87d6e5ae458c92e9e98a869af"
-    },
-    {
-      "bytes": 796,
-      "path": "dynamic/恋爱/2026-08-26 14-40-30 德文玩偶到家眼睛尚未装入_e9e2d19ab7fa.md",
-      "sha256": "c1510aac9d0d9e1477d546d4212b73e7cd7b205cfb10f7b016e8c63ace921ae3"
     },
     {
       "bytes": 665,
@@ -818,11 +818,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-10-29T03:27:32+00:00",
+  "generated_at": "2026-10-29T15:27:37+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 507507
+  "total_bytes": 507509
 }
