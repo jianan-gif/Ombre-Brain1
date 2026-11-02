@@ -1,6 +1,6 @@
 {
   "branch": "main",
-  "file_count": 164,
+  "file_count": 166,
   "files": [
     {
       "bytes": 32768,
@@ -138,6 +138,11 @@
       "sha256": "4ce97fccae2a811a6d8e5f312e35cc6c7f19230d2bfe8f88224d6ac3d61f0f41"
     },
     {
+      "bytes": 673,
+      "path": "archive/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
+      "sha256": "b584ab94e42cd84373e21d3a270e7c32a1f25a6a3edbdfb23061636ef8528494"
+    },
+    {
       "bytes": 924,
       "path": "archive/letter/2026-07-25 13-36-17 user_2026-07-25_8450880ed232.md",
       "sha256": "91703e54ccdd8c1c33a68f2767dbf8a89d66614f16e8c7166f9435105292f0d9"
@@ -231,6 +236,11 @@
       "bytes": 835,
       "path": "archive/学习/2026-08-27 12-06-19 英语App产品纲要已读_7d68ab4be002.md",
       "sha256": "ad55a4006d7a7038c54b5b9dc2c9636b68a3aed30f6ac428a1b603641a31affc"
+    },
+    {
+      "bytes": 695,
+      "path": "archive/学习/2026-08-28 12-06-25 日常英语听力任务已暂停_ff7b509dcc10.md",
+      "sha256": "c9eca65f31d573b3eeef904e6ebea503b2e67ea8d9fbc27636691aec313aaca7"
     },
     {
       "bytes": 763,
@@ -338,6 +348,16 @@
       "sha256": "2d15bb6916878ccbbe9c488f9fe63ce6d54f0b86bdf46b90d74cc59569e3f9ff"
     },
     {
+      "bytes": 666,
+      "path": "archive/恋爱/2026-08-26 16-02-08 第一次正脸_33220458a5de.md",
+      "sha256": "12489da4321ab9037bd9f533d3d4018681c115f1e1c480394c7cd4c80a753695"
+    },
+    {
+      "bytes": 530,
+      "path": "archive/恋爱/2026-08-27 12-27-42 说话要带语气标记_5e415f829fb2.md",
+      "sha256": "7106ca3bbc1b912577046c02a7d785dcc1f39d26f4a86a7e2ea79a078fb5508b"
+    },
+    {
       "bytes": 567,
       "path": "archive/恋爱/2026-08-27 15-53-27 威胁与换要求两种得寸_3d816bc0942e.md",
       "sha256": "dbdf148c542b46cbaed087ef979487788752e5468a4eacb2dae5aca7d98cab64"
@@ -358,6 +378,11 @@
       "sha256": "3696b011623b5b82df19b997b14541860e45319ff180a3f7d7806bded9f89bb3"
     },
     {
+      "bytes": 678,
+      "path": "archive/编程/2026-08-27 11-58-49 小安在做英语学习App_1f115b0286d1.md",
+      "sha256": "7ad305516c48ae12f335bdd537ede8fad5debcdc580ff66fc68de8c1ba4b813a"
+    },
+    {
       "bytes": 888,
       "path": "archive/自省/2026-07-28 17-54-13 7月28日关于情感质地交换与喜欢的讨论结论_f8b738bc79d4.md",
       "sha256": "9b9e514829665ebe121d2c4c7f7ce1f4c2a6bf247bc470707e6e69d1ad7a3883"
@@ -371,11 +396,6 @@
       "bytes": 672,
       "path": "archive/饮食/2026-08-13 12-10-26 提醒今晚130必须躺下_f7174f125e6d.md",
       "sha256": "d4b094c4c55784323cde873589129d38089bdb2879ceb2776a741ed4aa470b3e"
-    },
-    {
-      "bytes": 672,
-      "path": "dynamic/AI/2026-08-27 14-11-29 系统跨窗口记忆保持关闭_1a31cf175a8f.md",
-      "sha256": "259ef5ff26fc216e025466971f8c8bd540953f0d7cb4b1e3e07ee134cab748cf"
     },
     {
       "bytes": 1373,
@@ -428,11 +448,6 @@
       "sha256": "d22f26a62be8a8765ad3db271ac14e22a14b5eed4984ce747a4892d5e30a3ced"
     },
     {
-      "bytes": 694,
-      "path": "dynamic/学习/2026-08-28 12-06-25 日常英语听力任务已暂停_ff7b509dcc10.md",
-      "sha256": "dfd278cefb7b762518a97de60aa68e5331738eb9973617a3c68b1f7282d7ebb0"
-    },
-    {
       "bytes": 595,
       "path": "dynamic/学习/2026-08-28 13-54-54 小安学英语的理由_a6c1e7e6c04c.md",
       "sha256": "550354a29ff7c2eaf424b59ead963589669cf3b8c275b3f8fd13a076db3c4f71"
@@ -448,19 +463,9 @@
       "sha256": "d78372c46ab93945d09ab2fbcfd2bfa91728aaf87d6e5ae458c92e9e98a869af"
     },
     {
-      "bytes": 665,
-      "path": "dynamic/恋爱/2026-08-26 16-02-08 第一次正脸_33220458a5de.md",
-      "sha256": "0c889b82b17b4b9eda004f0aa1dfe7b27be69947708513587c20bff4512331f3"
-    },
-    {
       "bytes": 697,
       "path": "dynamic/恋爱/2026-08-27 12-23-31 眼睛不拍脸脸由她拍_5f7f1ba61f9e.md",
       "sha256": "a158c5f405330bcb72f5af636905e3fc42a480e83402307bbf57caf7598c5a02"
-    },
-    {
-      "bytes": 529,
-      "path": "dynamic/恋爱/2026-08-27 12-27-42 说话要带语气标记_5e415f829fb2.md",
-      "sha256": "f62261a428f6fb19dc19b131919c61597ae61b9c9a160da7bcdd03f62660f15f"
     },
     {
       "bytes": 679,
@@ -516,11 +521,6 @@
       "bytes": 1103,
       "path": "dynamic/睡眠/2026-09-10 07-13-49 2026-09-10 作息墙与醒点_dafcfb92ef09.md",
       "sha256": "93c22c0946d61a0d87de9a6ae540a899dcc1f8d2d7a39f9422d69613f15421a1"
-    },
-    {
-      "bytes": 677,
-      "path": "dynamic/编程/2026-08-27 11-58-49 小安在做英语学习App_1f115b0286d1.md",
-      "sha256": "d0c1c6e67e51e5dbca4cfe0e071ecb92910fc8e84466d3788b8e281eed41c1ab"
     },
     {
       "bytes": 540,
@@ -663,6 +663,11 @@
       "sha256": "96632c9e672db1f8a2249f8eb3e324c14f5d5b7c073a148bb3c1d253336ce3ef"
     },
     {
+      "bytes": 532,
+      "path": "letters/history/2026-11-02 11-51-15 先靠近_d423b2b523ed.md",
+      "sha256": "c6c00e2232e910c0af3d156473c3554d771d7295cf5de2c0189e742933e50e87"
+    },
+    {
       "bytes": 923,
       "path": "permanent/家庭/2026-08-03 18-05-25 爸爸可向小安提需求核心_f66b0bd07c8e.md",
       "sha256": "acbc5328930e54e6dd4302f6a6b8907299bd5f984676d0e530434051f1d91352"
@@ -758,6 +763,11 @@
       "sha256": "cc307a84c1bb75cab23f8dda83ba40f3145d23b60fca191a776828f90730f864"
     },
     {
+      "bytes": 909,
+      "path": "permanent/恋爱/2026-11-02 11-51-16 在意要体现在具体回应_b6ff13d7abdb.md",
+      "sha256": "260d0c0e7c8b43ae78c9cf1e364206377e193a7d03750076d924b69065d24f18"
+    },
+    {
       "bytes": 1446,
       "path": "permanent/自省/2026-09-03 18-29-11 2026-09-04 小安对G不设防可随时了解_afb326604e98.md",
       "sha256": "69c3816244f6e7ef54e37e4dd9cd7ffcdb5a2f8d8b00251ada0fe9c53223cd7f"
@@ -823,11 +833,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-11-02T03:28:05+00:00",
+  "generated_at": "2026-11-02T15:28:09+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 508116
+  "total_bytes": 509562
 }
