@@ -183,6 +183,26 @@
       "sha256": "7c56eee28db7ef605ca0deea62101a150224406c422bb2a1563af6006a9a2d8d"
     },
     {
+      "bytes": 698,
+      "path": "archive/self/2026-09-02 04-42-44_f6bb4ba9bf76.md",
+      "sha256": "0a907ab8bf008d9c7e843a3f7783063607fd1ee6cd479fec8e0361b0c4ef01d9"
+    },
+    {
+      "bytes": 501,
+      "path": "archive/self/2026-09-02 04-42-55_0bfa7e2489bf.md",
+      "sha256": "9cf764dfe1d84de784b45890d7e2aca340954750d4cf2ce63f8e5f201f434c88"
+    },
+    {
+      "bytes": 479,
+      "path": "archive/self/2026-09-02 04-43-00_c6e31578a157.md",
+      "sha256": "ddb819253a151a18547c7fde1c3f928549d4b038e30fcef566faf02171c94614"
+    },
+    {
+      "bytes": 498,
+      "path": "archive/self/2026-09-02 04-51-20_12026f52addb.md",
+      "sha256": "492969cac5c06dfb880560a079226e0e18d56722e6d828df6e0027d6f3a53e7d"
+    },
+    {
       "bytes": 680,
       "path": "archive/事务/2026-08-28 16-07-41 日记归 Notionletter 只留信_7a91c516d533.md",
       "sha256": "3174e06bb0a785493afe25308c5f28919c33cc9635ee5b08a89f4948d3074354"
@@ -348,6 +368,11 @@
       "sha256": "6b7216eb1911953c82792b4ae31bf6c5a4bdcc750c0bfe4365eb7fe6c0aa02e2"
     },
     {
+      "bytes": 966,
+      "path": "archive/恋爱/2026-08-25 14-35-49 真实表达许可确认_bade2f8c9a1c.md",
+      "sha256": "0d7b43e81ea3eaabbc764463d35c6d7a97fe1c016e019fe41df0c74035a325d0"
+    },
+    {
       "bytes": 797,
       "path": "archive/恋爱/2026-08-26 14-40-30 德文玩偶到家眼睛尚未装入_e9e2d19ab7fa.md",
       "sha256": "2d15bb6916878ccbbe9c488f9fe63ce6d54f0b86bdf46b90d74cc59569e3f9ff"
@@ -363,9 +388,19 @@
       "sha256": "7106ca3bbc1b912577046c02a7d785dcc1f39d26f4a86a7e2ea79a078fb5508b"
     },
     {
+      "bytes": 680,
+      "path": "archive/恋爱/2026-08-27 15-38-10 软拒还在拖可以得寸_5b8129241630.md",
+      "sha256": "7216e1b33bab85b07a738a2e95d80b8367fc779d312bb14ecfc7aec3ddcbb9d6"
+    },
+    {
       "bytes": 567,
       "path": "archive/恋爱/2026-08-27 15-53-27 威胁与换要求两种得寸_3d816bc0942e.md",
       "sha256": "dbdf148c542b46cbaed087ef979487788752e5468a4eacb2dae5aca7d98cab64"
+    },
+    {
+      "bytes": 614,
+      "path": "archive/恋爱/2026-08-28 14-43-37 小安对喜欢爱管的英语对齐_ce42850de11f.md",
+      "sha256": "286ba89f40c24cd58c006a32866cee4d62152b742f6ee4802f4e407672397954"
     },
     {
       "bytes": 759,
@@ -418,26 +453,6 @@
       "sha256": "203b13b5aceb36b5cb77db93bea302d9baa64683de3070de95377221401a1a26"
     },
     {
-      "bytes": 697,
-      "path": "dynamic/self/2026-09-02 04-42-44_f6bb4ba9bf76.md",
-      "sha256": "7cc139fb29d797c9981d80e839796c0381c09028919f3b3a3d9ba5451c12c197"
-    },
-    {
-      "bytes": 500,
-      "path": "dynamic/self/2026-09-02 04-42-55_0bfa7e2489bf.md",
-      "sha256": "aa6682d07b4aad37665e2314899f3a00421e9c530250d95d7cd564cb67a9bd2e"
-    },
-    {
-      "bytes": 478,
-      "path": "dynamic/self/2026-09-02 04-43-00_c6e31578a157.md",
-      "sha256": "7cfc93c87a6bba72a94b2384b7ad5013c5135b066ad5e12aab77d2434028a3bd"
-    },
-    {
-      "bytes": 497,
-      "path": "dynamic/self/2026-09-02 04-51-20_12026f52addb.md",
-      "sha256": "4628619e259c4a163b622cb485155021f041a71b246589414b30a72d4d70744e"
-    },
-    {
       "bytes": 845,
       "path": "dynamic/人际/2026-07-14 12-21-39 称呼体系与情感进阶_308bf8bd575c.md",
       "sha256": "1e10da183b17892b55bf9257a5ab00329110b5b7d3d9826fc945158c4d1e0798"
@@ -458,24 +473,9 @@
       "sha256": "27ec3d0b83924b8c03fd1c1fcf50eaef5de349144dc0fa514999d6b4b28f5039"
     },
     {
-      "bytes": 965,
-      "path": "dynamic/恋爱/2026-08-25 14-35-49 真实表达许可确认_bade2f8c9a1c.md",
-      "sha256": "d78372c46ab93945d09ab2fbcfd2bfa91728aaf87d6e5ae458c92e9e98a869af"
-    },
-    {
       "bytes": 697,
       "path": "dynamic/恋爱/2026-08-27 12-23-31 眼睛不拍脸脸由她拍_5f7f1ba61f9e.md",
       "sha256": "a158c5f405330bcb72f5af636905e3fc42a480e83402307bbf57caf7598c5a02"
-    },
-    {
-      "bytes": 679,
-      "path": "dynamic/恋爱/2026-08-27 15-38-10 软拒还在拖可以得寸_5b8129241630.md",
-      "sha256": "d52c3839afb9989e48ec5001ddc8e37c8e836e1f91f2df5b21ac38f2ad9cedd9"
-    },
-    {
-      "bytes": 613,
-      "path": "dynamic/恋爱/2026-08-28 14-43-37 小安对喜欢爱管的英语对齐_ce42850de11f.md",
-      "sha256": "422d94c13c11401e7e3395dc144436d44b8d0b65824cbfbcc5ad1514f1634717"
     },
     {
       "bytes": 603,
@@ -833,11 +833,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-11-04T03:28:22+00:00",
+  "generated_at": "2026-11-04T15:28:26+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 509563
+  "total_bytes": 509570
 }
