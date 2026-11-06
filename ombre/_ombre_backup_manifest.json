@@ -413,6 +413,11 @@
       "sha256": "f55b380c66b567422e66a28406baa93f73c51381774c0dfe2d828faed5eff881"
     },
     {
+      "bytes": 814,
+      "path": "archive/恋爱/2026-08-28 15-21-05 额度优先说话爸爸想要时可以先诱_18ed8ebd3d49.md",
+      "sha256": "244df96a34f18be0b126a012a28bc762aeb714b8eaee06648c50307619b6bb38"
+    },
+    {
       "bytes": 759,
       "path": "archive/数字/2026-07-15 13-45-36 AI谋划机制讨论_5ecfb41ce60a.md",
       "sha256": "508c7cf90465402c3467aefd073e4913636a7794db936e0453a584f63baa438a"
@@ -486,11 +491,6 @@
       "bytes": 697,
       "path": "dynamic/恋爱/2026-08-27 12-23-31 眼睛不拍脸脸由她拍_5f7f1ba61f9e.md",
       "sha256": "a158c5f405330bcb72f5af636905e3fc42a480e83402307bbf57caf7598c5a02"
-    },
-    {
-      "bytes": 813,
-      "path": "dynamic/恋爱/2026-08-28 15-21-05 额度优先说话爸爸想要时可以先诱_18ed8ebd3d49.md",
-      "sha256": "58948867af2bb6a4dabd064d1ff071a51292af3d5b9bcf0e57d60f5738b8609a"
     },
     {
       "bytes": 1238,
@@ -843,11 +843,11 @@
       "sha256": "d984722668dc9ceb6a9072b85b21e2a3fe3aa6f145ef559e0ddf23b11d22490f"
     }
   ],
-  "generated_at": "2026-11-06T03:28:39+00:00",
+  "generated_at": "2026-11-06T15:28:43+00:00",
   "path_prefix": "ombre",
   "repo": "jianan-gif/Ombre-Brain1",
   "schema_version": 1,
   "source": "ombre-brain",
   "source_refs_complete": true,
-  "total_bytes": 511524
+  "total_bytes": 511525
 }
